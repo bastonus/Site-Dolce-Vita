@@ -1748,6 +1748,17 @@ footer::before {
   }
 }
 @media (max-width: 480px) {
+  :root {
+    --header-height: 58px;
+  }
+  nav {
+    padding: 0 0 0 1.2rem;
+  }
+  .nav-logo {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+  }
   .nav-phone span {
     display: none;
   }
