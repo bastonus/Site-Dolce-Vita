@@ -1872,12 +1872,12 @@ footer::before {
     text-align: center;
   }
   .nav-links.open .nav-links-footer p {
-    font-family: 'Source Serif 4', Georgia, serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.05rem;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1rem;
     line-height: 1.5;
-    color: var(--brown-light);
+    color: var(--terracotta);
   }
   .nav-links.open a { font-size: 1.2rem; }
   .nav-burger { display: flex; }
