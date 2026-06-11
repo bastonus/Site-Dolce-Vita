@@ -108,37 +108,20 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   border-color: var(--terracotta);
   box-shadow: 0 0 10px rgba(196,96,60,0.3);
 }
-.music-indicator {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  width: 16px;
-  height: 14px;
+.navbar__music-icon {
+  font-size: 1.15rem;
+  color: var(--terracotta);
+  display: inline-block;
+  transition: transform 0.3s, color 0.3s;
 }
-.music-indicator span {
-  width: 2.5px;
-  height: 100%;
-  background-color: var(--terracotta);
-  border-radius: 1px;
-  transition: background-color 0.3s ease, height 0.3s ease;
+.navbar__music.playing .navbar__music-icon {
+  color: var(--cream);
+  animation: spinDisc 2.5s linear infinite;
 }
-.navbar__music.playing .music-indicator span {
-  background-color: var(--cream);
-  animation: bounce 0.8s ease infinite alternate;
+@keyframes spinDisc {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
-.navbar__music:not(.playing) .music-indicator span:nth-child(1) { height: 4px; }
-.navbar__music:not(.playing) .music-indicator span:nth-child(2) { height: 8px; }
-.navbar__music:not(.playing) .music-indicator span:nth-child(3) { height: 5px; }
-.navbar__music:not(.playing) .music-indicator span:nth-child(4) { height: 3px; }
-
-@keyframes bounce {
-  0% { height: 20%; }
-  100% { height: 100%; }
-}
-.music-indicator span:nth-child(1) { animation-delay: -0.6s !important; }
-.music-indicator span:nth-child(2) { animation-delay: -0.3s !important; }
-.music-indicator span:nth-child(3) { animation-delay: -0.45s !important; }
-.music-indicator span:nth-child(4) { animation-delay: -0.15s !important; }
 
 /* Phone number styling in header */
 .nav-phone {
@@ -909,12 +892,7 @@ footer {
       <i class="fas fa-phone-alt"></i> <span>01 39 56 01 71</span>
     </a>
     <button class="navbar__music" id="musicToggle" aria-label="Jouer la musique">
-      <div class="music-indicator">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <i class="fas fa-compact-disc navbar__music-icon"></i>
     </button>
     <button class="nav-burger" id="burger" aria-label="Menu">
       <span></span><span></span><span></span>
