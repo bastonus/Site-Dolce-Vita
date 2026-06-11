@@ -2118,12 +2118,12 @@ footer::before {
   color: var(--cream);
   z-index: 101; /* Above navbar */
   font-family: 'Source Serif 4', Georgia, serif;
-  font-size: 0.82rem;
-  font-weight: 500;
+  font-size: clamp(0.72rem, 2.6vw, 0.95rem);
+  font-weight: 600;
   border-bottom: 1px solid rgba(245, 237, 214, 0.1);
   display: flex;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
 }
 
 .top-ticker-bar a {
@@ -2141,23 +2141,14 @@ footer::before {
   margin-right: 0.3rem;
 }
 
-.top-ticker-bar .ticker-wrap {
+.top-ticker-bar .ticker-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.top-ticker-bar .ticker-track {
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.top-ticker-bar .ticker-item-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 2.5rem;
-  padding-right: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 3rem;
 }
 
 .top-ticker-bar .ticker-item {
@@ -2189,24 +2180,17 @@ footer::before {
   color: #FF6B6B; /* beautiful light red/terracotta for readability */
 }
 
-/* Marquee scrolling animation on mobile / small screens (seamless infinite loop) */
-@media (max-width: 600px) {
-  .top-ticker-bar .ticker-track {
-    animation: topTickerMarquee 20s linear infinite;
+@media (max-width: 800px) {
+  .top-ticker-bar .ticker-content {
+    padding: 0 1.5rem;
   }
 }
 
-@media (min-width: 601px) {
-  .top-ticker-bar .ticker-track {
-    justify-content: center;
-    width: 100%;
+@media (max-width: 480px) {
+  .top-ticker-bar .ticker-content {
+    padding: 0 0.8rem;
   }
-  .top-ticker-bar .ticker-item-group[aria-hidden="true"] {
-    display: none;
+  .top-ticker-bar .ticker-separator {
+    display: none; /* Hide separator on small screen to save space */
   }
-}
-
-@keyframes topTickerMarquee {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
 }
