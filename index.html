@@ -179,7 +179,21 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 .hero-overlay {
   display: none;
 }
-.hero-content { position: relative; z-index: 3; padding: 2rem 0; max-width: 650px; }
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 2rem 0;
+  max-width: 650px;
+  width: 100%;
+  pointer-events: none;
+}
+.hero-foreground {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(5rem, 20vh, 18rem);
+  pointer-events: auto;
+}
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--terracotta);
@@ -190,30 +204,64 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   letter-spacing: 0.1em;
   padding: 0.4rem 1.2rem;
   border-radius: 2px;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 .hero-title {
   font-family: 'Fraunces', serif;
-  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  font-size: clamp(6rem, 20vh, 16rem);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--cream);
-  line-height: 0.9;
-  margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6), 4px 4px 30px rgba(0, 0, 0, 0.4);
+  line-height: 0.8;
+  margin-bottom: 0;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4), 4px 4px 30px rgba(0, 0, 0, 0.2);
   animation: heroIn 0.9s ease backwards;
+  position: absolute;
+  left: clamp(2rem, 8vw, 6rem);
+  top: 50%;
+  transform: translateY(-50%) rotate(-1deg);
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
 }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
-.hero-sub {
+.hero-phrase-card {
+  position: absolute;
+  right: clamp(2rem, 8vw, 6rem);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.8rem 2rem;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  max-width: 320px;
+  z-index: 5;
+  animation: heroIn 0.9s 0.3s ease backwards;
+}
+.hero-phrase-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    #009246 0%, #009246 33.33%,
+    #F1F2F1 33.33%, #F1F2F1 66.66%,
+    #CE2B37 66.66%, #CE2B37 100%
+  );
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.hero-phrase-card .hero-sub {
   font-family: 'Source Serif 4', Georgia, serif;
   font-style: italic;
-  font-weight: 400;
-  font-size: 1.25rem;
-  color: var(--cream);
-  margin-bottom: 1.5rem;
-  animation: heroIn 0.9s 0.2s ease backwards;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--brown);
+  margin-bottom: 0;
+  text-align: center;
+  text-shadow: none;
+  line-height: 1.6;
 }
 .hero-cta {
   display: inline-block;
@@ -646,6 +694,16 @@ footer {
     padding: 0.4rem 0.8rem;
     margin-right: 0.2rem;
   }
+  .hero-title {
+    font-size: clamp(4.5rem, 15vh, 9rem);
+    left: 1.5rem;
+  }
+  .hero-foreground {
+    gap: clamp(4rem, 15vh, 10rem);
+  }
+  .hero-phrase-card {
+    right: 1.5rem;
+  }
 }
 @media (max-width: 480px) {
   .nav-phone span {
@@ -660,6 +718,16 @@ footer {
     height: 38px;
     justify-content: center;
     margin-right: 0;
+  }
+  .hero-title {
+    font-size: clamp(3.5rem, 12vh, 6.5rem);
+    left: 1rem;
+  }
+  .hero-phrase-card {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    margin-top: 2rem;
   }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; top: 68px; background: var(--cream); padding: 2.5rem 2rem; gap: 1.8rem; z-index: 99; border-top: 1px solid var(--cream2); }
   .nav-links.open a { font-size: 1.2rem; }
@@ -706,10 +774,19 @@ footer {
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">🇮🇹 La Trattoria de Sylvia et Franco · Buc</div>
-    <p class="hero-sub">« La vraie cuisine italienne, comme à la maison »</p>
+    <!-- Massive Title behind the content -->
     <h1 class="hero-title">La<br>Dolce<br>Vita</h1>
-    <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
+    
+    <!-- Foreground elements that sit on top -->
+    <div class="hero-foreground">
+      <div class="hero-badge">🇮🇹 La Trattoria de Sylvia et Franco · Buc</div>
+      <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
+    </div>
+    
+    <!-- Repositioned Italian Flag Tagline on the Right -->
+    <div class="hero-phrase-card">
+      <p class="hero-sub">« La vraie cuisine italienne, comme à la maison »</p>
+    </div>
   </div>
 </section>
 
