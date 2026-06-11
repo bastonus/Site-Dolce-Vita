@@ -166,8 +166,36 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   text-align: left;
   overflow: hidden;
   padding-top: 80px;
-  padding-left: clamp(2rem, 8vw, 6rem);
+  padding-left: clamp(3.5rem, 10vw, 8rem);
   padding-right: 2rem;
+}
+.hero-vertical-text {
+  position: absolute;
+  left: clamp(1.2rem, 3.5vw, 3rem);
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  white-space: nowrap;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.1rem, 3.2vh, 2.2rem);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--cream);
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5), 4px 4px 30px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0.9;
+}
+.hero-vertical-text::before {
+  content: '';
+  display: inline-block;
+  width: clamp(20px, 4vh, 40px);
+  height: 2px;
+  background: var(--terracotta);
+  vertical-align: middle;
 }
 .hero-video-bg {
   position: absolute; inset: 0;
@@ -214,15 +242,12 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   line-height: 0.85;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4), 4px 4px 30px rgba(0, 0, 0, 0.2);
-  animation: heroIn 0.9s ease backwards;
 }
-@keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
 .hero-phrase-wrapper {
   position: absolute;
   right: clamp(1.5rem, 5vw, 4rem);
   top: 30%; /* Shifted higher up, not centered vertically */
   z-index: 5;
-  animation: heroIn 0.9s 0.3s ease backwards;
 }
 .hero-phrase-card {
   background: var(--sage-dark); /* Solid green background from Toscana theme */
@@ -266,7 +291,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  animation: heroIn 0.9s 0.4s ease backwards;
   box-shadow: 0 4px 15px rgba(196, 96, 60, 0.25);
 }
 .hero-cta:hover {
@@ -289,7 +313,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   background: var(--sage);
   color: var(--cream);
   box-shadow: 0 4px 15px rgba(125, 155, 118, 0.25);
-  animation-delay: 0.5s;
 }
 .hero-cta--secondary:hover {
   background: var(--sage-dark);
@@ -691,9 +714,7 @@ footer {
 .footer-socials a:hover { background: var(--terracotta); color: var(--cream); }
 .footer-copy { font-size: 0.72rem; color: rgba(245,237,216,0.2); font-style: italic; }
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(25px) rotate(0.3deg); transition: opacity 0.8s ease, transform 0.8s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+/* REVEAL animations removed */
 
 @media (max-width: 800px) {
   nav { padding: 1rem 1.5rem; }
@@ -725,6 +746,13 @@ footer {
     justify-content: center;
     margin-right: 0;
   }
+  .hero {
+    padding-left: 3.5rem;
+  }
+  .hero-vertical-text {
+    left: 1.25rem;
+    font-size: 0.95rem;
+  }
   .hero-title {
     font-size: clamp(3rem, 10vh, 5rem);
   }
@@ -732,7 +760,6 @@ footer {
     position: static;
     transform: none;
     margin: 2rem auto 0;
-    animation: none;
   }
   .hero-phrase-card {
     margin: 0 auto;
@@ -782,10 +809,10 @@ footer {
     </video>
   </div>
   <div class="hero-overlay"></div>
+  <div class="hero-vertical-text">La Trattoria de Sylvia et Franco · Buc</div>
   <div class="hero-content">
     <!-- Foreground elements that sit in normal flow -->
     <div class="hero-foreground">
-      <div class="hero-badge">🇮🇹 La Trattoria de Sylvia et Franco · Buc</div>
       <h1 class="hero-title">La<br>Dolce<br>Vita</h1>
       <div class="hero-buttons">
         <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
@@ -804,14 +831,14 @@ footer {
 
 <section class="about" id="storia">
   <div class="container">
-    <p class="section-label reveal">La nostra storia</p>
-    <h2 class="section-title reveal">Un coin d'<em>Italie</em> chez vous</h2>
-    <div class="rustic-divider reveal"><span>✦</span></div>
+    <p class="section-label">La nostra storia</p>
+    <h2 class="section-title">Un coin d'<em>Italie</em> chez vous</h2>
+    <div class="rustic-divider"><span>✦</span></div>
     <div class="about-grid">
-      <div class="about-visual reveal">
+      <div class="about-visual">
         <img src="assets/images/image_4.jpeg" alt="Franco derrière son bar">
       </div>
-      <div class="reveal">
+      <div>
         <div class="about-text">
           <span class="about-drop-cap">C</span>
           <p>hez Sylvia et Franco, pas de chichis : des nappes à carreaux rouges et blancs, des photos du film <em>La Dolce Vita</em> au mur, des ampoules Edison qui baignent la salle d'une lumière dorée.</p>
@@ -826,26 +853,26 @@ footer {
 
 <div class="terra-banner">
   <div class="terra-banner-grid">
-    <div class="reveal"><div class="terra-num">37+</div><div class="terra-label">Ans d'expérience</div></div>
-    <div class="reveal"><div class="terra-num">100%</div><div class="terra-label">Fait maison</div></div>
-    <div class="reveal"><div class="terra-num">1987</div><div class="terra-label">Notre fondation</div></div>
+    <div><div class="terra-num">37+</div><div class="terra-label">Ans d'expérience</div></div>
+    <div><div class="terra-num">100%</div><div class="terra-label">Fait maison</div></div>
+    <div><div class="terra-num">1987</div><div class="terra-label">Notre fondation</div></div>
   </div>
 </div>
 
 <section class="quote-section">
   <div class="container">
-    <span class="quote-mark reveal">❝</span>
-    <p class="quote-text reveal">La vita è una combinazione di pasta e magia.</p>
-    <cite class="quote-author reveal">— Federico Fellini</cite>
+    <span class="quote-mark">❝</span>
+    <p class="quote-text">La vita è une combinazione di pasta e magia.</p>
+    <cite class="quote-author">— Federico Fellini</cite>
   </div>
 </section>
 
 <section class="menu-section" id="carta">
   <div class="container">
-    <p class="section-label reveal">Buon appetito !</p>
-    <h2 class="section-title reveal">La <em>Carte</em></h2>
-    <div class="rustic-divider reveal"><span>✦</span></div>
-    <div class="chalk-board reveal">
+    <p class="section-label">Buon appetito !</p>
+    <h2 class="section-title">La <em>Carte</em></h2>
+    <div class="rustic-divider"><span>✦</span></div>
+    <div class="chalk-board">
       <div class="chalk-tabs">
         <button class="tab-btn active" data-tab="aperitivi">Aperitivi &amp; Boissons</button>
         <button class="tab-btn" data-tab="primi">Pâtes &amp; Risottos</button>
@@ -944,53 +971,53 @@ footer {
 
 <section class="gallery-section" id="galleria">
   <div class="container">
-    <p class="section-label reveal">La nostra trattoria</p>
-    <h2 class="section-title reveal">La <em>Galleria</em></h2>
-    <div class="rustic-divider reveal"><span>✦</span></div>
+    <p class="section-label">La nostra trattoria</p>
+    <h2 class="section-title">La <em>Galleria</em></h2>
+    <div class="rustic-divider"><span>✦</span></div>
     <div class="gallery-organic">
-      <div class="g-card reveal">
+      <div class="g-card">
         <div class="g-bg"><img src="assets/images/image_1.jpeg" class="g-img" alt="La Salle"></div>
         <div class="g-info">
           <div class="g-title">La Salle — Dolce Vita</div>
           <div class="g-sub">L'atmosphère de notre trattoria</div>
         </div>
       </div>
-      <div class="g-card reveal">
+      <div class="g-card">
         <div class="g-bg"><img src="assets/images/image_2.jpeg" class="g-img" alt="Le Bar"></div>
         <div class="g-info">
           <div class="g-title">Il Bar</div>
           <div class="g-sub">Aperitivi e Spritz</div>
         </div>
       </div>
-      <div class="g-card reveal">
+      <div class="g-card">
         <div class="g-bg"><img src="assets/images/image_3.jpeg" class="g-img" alt="Machine à café Lavazza"></div>
         <div class="g-info">
           <div class="g-title">Espresso Lavazza ☕</div>
           <div class="g-sub">La machine à café</div>
         </div>
       </div>
-      <div class="g-card reveal">
+      <div class="g-card">
         <div class="g-bg"><img src="assets/images/image_6.jpeg" class="g-img" alt="Franco derrière le bar"></div>
         <div class="g-info">
           <div class="g-title">Franco, il padrone 🤌</div>
           <div class="g-sub">Le patron derrière le bar</div>
         </div>
       </div>
-      <div class="g-card reveal">
+      <div class="g-card">
         <div class="g-bg"><img src="assets/images/image_7.jpeg" class="g-img" alt="Détails du bar"></div>
         <div class="g-info">
           <div class="g-title">I Dettagli</div>
           <div class="g-sub">Les drapeaux italiens</div>
         </div>
       </div>
-      <div class="g-card reveal">
+      <div class="g-card">
         <div class="g-bg"><img src="assets/images/image_8.jpeg" class="g-img" alt="Les liqueurs"></div>
         <div class="g-info">
           <div class="g-title">Les Spiritueux</div>
           <div class="g-sub">Amaretto · Campari</div>
         </div>
       </div>
-      <div class="g-card reveal">
+      <div class="g-card">
         <div class="g-bg"><img src="assets/images/image_10.jpeg" class="g-img" alt="Terrasse extérieure"></div>
         <div class="g-info">
           <div class="g-title">La Terrazza 🌞</div>
@@ -1009,10 +1036,10 @@ footer {
 
 <section class="contact-section" id="contatto">
   <div class="container">
-    <p class="section-label reveal">Vi aspettiamo !</p>
-    <h2 class="section-title reveal">Venez nous <em>voir</em></h2>
-    <div class="rustic-divider reveal"><span>✦</span></div>
-    <div class="contact-card-wrap reveal">
+    <p class="section-label">Vi aspettiamo !</p>
+    <h2 class="section-title">Venez nous <em>voir</em></h2>
+    <div class="rustic-divider"><span>✦</span></div>
+    <div class="contact-card-wrap">
       <div class="contact-card-header">
         <div class="contact-card-header-title">Sylvia &amp; Franco vous accueillent</div>
         <div class="contact-card-header-sub">14, place du Marché · 78530 Buc, France</div>
@@ -1079,16 +1106,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   });
 });
 
-// Reveal on scroll
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting) {
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+// Reveal on scroll disabled
 
 // Lightbox
 const lightbox = document.getElementById('lightbox');
