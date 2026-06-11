@@ -298,19 +298,17 @@
 <div class="floating-quote-wrapper floating-quote-split">
   <div class="floating-quote-container">
     <div class="floating-quote-text">
-      <span class="quote-line-1">Prima si <span class="quote-highlight-light">mangia</span>,</span>
+      <div class="quote-row-1">
+        <span class="quote-line-1">Prima si <span class="quote-highlight-light">mangia</span>,</span>
+        <span class="quote-author">— Proverbio popolare</span>
+      </div>
       <span class="quote-line-2">poi si fa tutto il <span class="quote-highlight-dark">resto</span>.</span>
-      <span class="quote-author">— Proverbio popolare</span>
     </div>
   </div>
 </div>
 
 <section class="contact-section" id="contatto">
   <div class="container">
-    <p class="section-label">Vi aspettiamo !</p>
-    <h2 class="section-title">Venez nous <em>voir</em></h2>
-    <div class="rustic-divider"><span>✦</span></div>
-    
     <div class="contact-grid">
       <!-- Left: Responsive Map Card -->
       <div class="contact-map-card">
@@ -327,7 +325,7 @@
       <!-- Right: Contact Details Card -->
       <div class="contact-details-card">
         <div class="contact-card-badge">Trattoria</div>
-        <h3 class="contact-card-title">Sylvia &amp; Franco vous accueillent</h3>
+        <h3 class="contact-card-title">Sylvia &amp; Franco <em>vous accueillent</em></h3>
         <p class="contact-card-sub">Venez déguster nos spécialités italiennes faites maison dans une ambiance conviviale et chaleureuse au cœur de Buc.</p>
         
         <div class="contact-items-list">
@@ -368,6 +366,12 @@
     </div>
   </div>
 </section>
+
+<div class="menu-gallery-divider">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
 <footer>
   <!-- Italian tricolor left band -->
@@ -446,8 +450,17 @@ navLinks.querySelectorAll('a').forEach(a => {
 const tabsIndicator = document.querySelector('.chalk-tabs-indicator');
 function updateTabIndicator(activeBtn) {
   if (tabsIndicator && activeBtn) {
-    tabsIndicator.style.left = activeBtn.offsetLeft + 'px';
-    tabsIndicator.style.width = activeBtn.offsetWidth + 'px';
+    if (window.innerWidth <= 800) {
+      tabsIndicator.style.left = '-2rem';
+      tabsIndicator.style.width = '35px';
+      tabsIndicator.style.top = activeBtn.offsetTop + 'px';
+      tabsIndicator.style.height = activeBtn.offsetHeight + 'px';
+    } else {
+      tabsIndicator.style.left = activeBtn.offsetLeft + 'px';
+      tabsIndicator.style.width = activeBtn.offsetWidth + 'px';
+      tabsIndicator.style.top = '';
+      tabsIndicator.style.height = '';
+    }
   }
 }
 
