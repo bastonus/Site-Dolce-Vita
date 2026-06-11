@@ -235,14 +235,14 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   transform: scale(1.12);
 }
 .hero__music-disc i {
-  color: var(--terracotta);
+  color: #fff;
   display: inline-block;
   transition: color 0.3s;
   filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.45));
 }
 .hero__music-disc.playing i {
   animation: spinDisc 2.5s linear infinite;
-  color: var(--terracotta);
+  color: #fff;
   filter: drop-shadow(1px 2px 4px rgba(0,0,0,0.45));
 }
 /* Floating music notes */
