@@ -177,9 +177,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   width: 100%; height: 100%; object-fit: cover;
 }
 .hero-overlay {
-  position: absolute; inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 1;
+  display: none;
 }
 .hero-content { position: relative; z-index: 3; padding: 2rem 0; max-width: 650px; }
 .hero-badge {
@@ -193,6 +191,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   padding: 0.4rem 1.2rem;
   border-radius: 2px;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 .hero-title {
   font-family: 'Fraunces', serif;
@@ -202,7 +201,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   color: var(--cream);
   line-height: 0.95;
   margin-bottom: 1.5rem;
-  text-shadow: 3px 4px 0 rgba(74,55,40,0.25), 6px 8px 20px rgba(74,55,40,0.15);
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6), 4px 4px 30px rgba(0, 0, 0, 0.4);
   animation: heroIn 0.9s ease backwards;
 }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
@@ -210,16 +209,17 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   display: flex; align-items: center; justify-content: flex-start; gap: 1rem;
   margin: 1.5rem 0;
 }
-.hero-divider-line { width: 80px; height: 1px; background: rgba(245,237,216,0.5); }
-.hero-divider-icon { color: rgba(245,237,216,0.7); font-size: 0.8rem; }
+.hero-divider-line { width: 80px; height: 1px; background: rgba(255,255,255,0.8); box-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+.hero-divider-icon { color: rgba(245,237,216,0.9); font-size: 0.8rem; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
 .hero-sub {
   font-family: 'Source Serif 4', serif;
   font-style: italic;
   font-weight: 300;
   font-size: 1.2rem;
-  color: rgba(245,237,216,0.85);
+  color: rgba(255,255,255,0.95);
   margin-bottom: 3rem;
   animation: heroIn 0.9s 0.2s ease backwards;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
 }
 .hero-cta {
   display: inline-block;
@@ -236,6 +236,8 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   overflow: hidden;
   transition: color 0.4s;
   animation: heroIn 0.9s 0.4s ease backwards;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 .hero-cta::before {
   content: '';
