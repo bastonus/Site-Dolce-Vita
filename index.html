@@ -87,6 +87,7 @@
       <li><a href="#carta">La Carte</a></li>
       <li><a href="#galleria">Galerie</a></li>
       <li><a href="#contatto">Contact</a></li>
+      <div class="nav-links-indicator"></div>
     </div>
     <div class="nav-links-footer">
       <div class="nav-links-footer-quote">
@@ -536,6 +537,13 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('opened', isOpen);
   burger.setAttribute('aria-expanded', isOpen);
   document.body.classList.toggle('no-scroll', isOpen);
+  if (isOpen) {
+    const activeLink = navLinks.querySelector('a.active');
+    if (activeLink) {
+      // Small timeout to allow the browser to lay out the open menu
+      setTimeout(() => updateNavLinksIndicator(activeLink), 50);
+    }
+  }
 });
 navLinks.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
@@ -548,6 +556,18 @@ navLinks.querySelectorAll('a').forEach(a => {
 
 // Scroll Spy to detect active section
 const sections = document.querySelectorAll('section[id]');
+const navLinksIndicator = document.querySelector('.nav-links-indicator');
+
+function updateNavLinksIndicator(activeLink) {
+  if (navLinksIndicator && activeLink) {
+    const parentLi = activeLink.parentElement;
+    if (parentLi) {
+      navLinksIndicator.style.top = (parentLi.offsetTop + (parentLi.offsetHeight / 2) - 12) + 'px';
+      navLinksIndicator.style.opacity = '1';
+    }
+  }
+}
+
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -556,6 +576,7 @@ const navObserver = new IntersectionObserver((entries) => {
         const href = link.getAttribute('href');
         if (href === `#${activeId}`) {
           link.classList.add('active');
+          updateNavLinksIndicator(link);
         } else {
           link.classList.remove('active');
         }
@@ -566,6 +587,12 @@ const navObserver = new IntersectionObserver((entries) => {
   rootMargin: '-30% 0px -60% 0px' // Detect sections near the center of the viewport
 });
 sections.forEach(section => navObserver.observe(section));
+
+// Update position on resize/load for indicator if active link exists
+window.addEventListener('resize', () => {
+  const activeLink = navLinks.querySelector('a.active');
+  if (activeLink) updateNavLinksIndicator(activeLink);
+});
 
 // Chalkboard Menu Tab switcher
 const tabsIndicator = document.querySelector('.chalk-tabs-indicator');

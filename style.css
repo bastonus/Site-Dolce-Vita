@@ -1854,15 +1854,15 @@ footer::before {
     padding-left: 2rem;
   }
   /* Floating tricolor indicator badge, matching the look of the mobile tab indicator (collé au bord, sans ombrage) */
-  .nav-links.open .nav-links-menu::before {
-    content: '';
+  .nav-links-indicator {
     position: absolute;
     left: -2.5rem;
-    top: 0.2rem;
     width: 35px;
     height: 24px;
     background: linear-gradient(to bottom, var(--it-green) 33.3%, #FAFAF5 33.3%, #FAFAF5 66.6%, var(--it-red) 66.6%);
     box-shadow: none;
+    transition: top 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease;
+    opacity: 0;
   }
   .nav-links.open .nav-links-footer {
     display: flex;
