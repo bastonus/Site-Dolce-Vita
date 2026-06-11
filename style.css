@@ -965,6 +965,7 @@ section { padding: 7rem 2rem; }
 /* GALLERY */
 .gallery-section {
   background: var(--sage-dark);
+  padding-bottom: 11rem;
 }
 .gallery-section .section-label {
   color: rgba(255,255,255,0.75);
@@ -1085,7 +1086,7 @@ section { padding: 7rem 2rem; }
 /* CONTACT */
 .contact-section { 
   background: linear-gradient(145deg, #f0e8d8 0%, #e8d8c4 50%, #ddc9af 100%); 
-  padding: 4rem 0;
+  padding: 10rem 0 4rem;
 }
 .contact-grid {
   display: grid;
