@@ -706,7 +706,7 @@ section { padding: 7rem 2rem; }
   font-size: clamp(1.8rem, 4.4vw, 5.2rem);
   font-weight: 700;
   display: block;
-  transform: translateY(6px);
+  transform: translateY(-8px);
   align-self: flex-end;
   text-align: right;
 }
