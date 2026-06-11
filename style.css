@@ -1873,21 +1873,6 @@ footer::before {
     padding-top: 2rem;
     text-align: center;
   }
-  .nav-links.open .nav-links-footer-quote {
-    font-family: 'Fraunces', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--brown);
-    line-height: 1.2;
-  }
-  .nav-links.open .quote-green {
-    color: var(--sage);
-    font-weight: 700;
-  }
-  .nav-links.open .quote-red {
-    color: var(--terracotta);
-    font-weight: 700;
-  }
   .nav-links.open a {
     font-family: 'Fraunces', serif;
     font-size: 1.2rem;
