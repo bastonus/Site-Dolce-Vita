@@ -442,25 +442,35 @@ section { padding: 7rem 2rem; }
   padding-top: 1rem;
 }
 
-/* TERRACOTTA BANNER */
-.terra-banner {
-  background: var(--terracotta);
-  padding: 4rem 2rem;
+/* ABOUT STATS */
+.about-stats-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed rgba(196, 96, 60, 0.25);
+  padding-bottom: 1.5rem;
 }
-.terra-banner-grid {
-  max-width: 800px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 2rem; text-align: center;
-  border-top: 1px solid rgba(245,237,216,0.2);
-  border-bottom: 1px solid rgba(245,237,216,0.2);
-  padding: 3rem 0;
+.about-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.terra-num {
+.about-stat-num {
   font-family: 'Fraunces', serif;
-  font-size: 3rem; font-style: italic;
-  color: var(--cream); line-height: 1;
+  font-size: 2.3rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--terracotta);
+  line-height: 1;
 }
-.terra-label { font-size: 0.82rem; color: rgba(245,237,216,0.7); margin-top: 0.5rem; font-style: italic; letter-spacing: 0.05em; }
+.about-stat-label {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.78rem;
+  color: var(--brown-light);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
 
 /* QUOTE */
 .quote-section {
@@ -795,7 +805,17 @@ footer {
   .gallery-organic { grid-template-columns: 1fr 1fr; }
   .g-card:nth-child(1) { grid-column: span 2; grid-row: span 1; }
   .g-card:nth-child(4) { grid-column: span 1; }
-  .terra-banner-grid { grid-template-columns: 1fr; }
+  .about-stats-grid {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .about-stat-num {
+    font-size: 1.8rem;
+  }
+  .about-stat-label {
+    font-size: 0.72rem;
+  }
   .chalk-board { padding: 2rem 1.5rem; }
 }
 </style>
@@ -861,6 +881,11 @@ footer {
         <img src="assets/images/image_4.jpeg" alt="Franco derrière son bar">
       </div>
       <div>
+        <div class="about-stats-grid">
+          <div class="about-stat-item"><div class="about-stat-num">37+</div><div class="about-stat-label">Ans d'expérience</div></div>
+          <div class="about-stat-item"><div class="about-stat-num">100%</div><div class="about-stat-label">Fait maison</div></div>
+          <div class="about-stat-item"><div class="about-stat-num">1987</div><div class="about-stat-label">Notre fondation</div></div>
+        </div>
         <div class="about-text">
           <span class="about-drop-cap">C</span>
           <p>hez Sylvia et Franco, pas de chichis : des nappes à carreaux rouges et blancs, des photos du film <em>La Dolce Vita</em> au mur, des ampoules Edison qui baignent la salle d'une lumière dorée.</p>
@@ -873,13 +898,7 @@ footer {
   </div>
 </section>
 
-<div class="terra-banner">
-  <div class="terra-banner-grid">
-    <div><div class="terra-num">37+</div><div class="terra-label">Ans d'expérience</div></div>
-    <div><div class="terra-num">100%</div><div class="terra-label">Fait maison</div></div>
-    <div><div class="terra-num">1987</div><div class="terra-label">Notre fondation</div></div>
-  </div>
-</div>
+<!-- Stats moved to About section -->
 
 <section class="quote-section">
   <div class="container">
