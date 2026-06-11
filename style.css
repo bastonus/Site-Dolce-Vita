@@ -1840,10 +1840,10 @@ footer::before {
     position: fixed;
     inset: 0;
     top: var(--header-height);
-    background: var(--slate); /* Beautiful premium dark slate */
+    background: var(--brown); /* Beautiful premium site brown */
     padding: 3.5rem 2.5rem;
     z-index: 99;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--brown-light);
   }
   .nav-links.open .nav-links-menu {
     display: flex;
@@ -1878,13 +1878,13 @@ footer::before {
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 700;
-    color: var(--cream);
+    color: var(--cream2);
     transition: color 0.2s ease;
     text-decoration: none;
   }
   .nav-links.open a:hover,
   .nav-links.open a.active {
-    color: var(--white);
+    color: var(--cream);
     font-weight: 900;
   }
   .nav-links.open a::after {
