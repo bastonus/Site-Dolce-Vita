@@ -1154,7 +1154,7 @@ section { padding: 7rem 2rem; }
   display: grid;
   grid-template-columns: auto 1fr auto;
   column-gap: 0.5rem;
-  align-items: baseline;
+  align-items: last baseline;
   padding: 0.55rem 0;
   border-bottom: none;
   background: none;
@@ -1173,7 +1173,7 @@ section { padding: 7rem 2rem; }
   grid-row: 1;
   border-bottom: 2px solid var(--terracotta);
   opacity: 0.35;
-  align-self: baseline;
+  align-self: last baseline;
   transform: translateY(-3px);
   margin: 0 0.25rem;
   min-width: 1.5rem;
@@ -1225,7 +1225,7 @@ section { padding: 7rem 2rem; }
   background: none;
   padding: 0;
   border-radius: 0;
-  align-self: baseline;
+  align-self: last baseline;
 }
 #tab-aperitivi .chalk-price,
 #tab-primi     .chalk-price,
