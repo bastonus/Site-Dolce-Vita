@@ -1828,7 +1828,24 @@ footer::before {
   .hero-phrase-wrapper {
     display: none;
   }
-  .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; top: var(--header-height); background: var(--cream); padding: 2.5rem 2rem; gap: 1.8rem; z-index: 99; border-top: 1px solid var(--cream2); }
+  body.no-scroll {
+    overflow: hidden;
+  }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    top: var(--header-height);
+    background: var(--cream);
+    padding: 2.5rem 2rem 2.5rem 3.2rem;
+    gap: 1.8rem;
+    z-index: 99;
+    border-top: 1px solid var(--cream2);
+    /* Left border decoration matching the tricolor tab indicator */
+    border-left: 6px solid transparent;
+    border-image: linear-gradient(to bottom, var(--it-green) 33.3%, #FAFAF5 33.3%, #FAFAF5 66.6%, var(--it-red) 66.6%) 1;
+  }
   .nav-links.open a { font-size: 1.2rem; }
   .nav-burger { display: flex; }
   .nav-actions { gap: 0; }
