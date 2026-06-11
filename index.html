@@ -98,7 +98,9 @@
   </div>
   <div class="nav-actions">
     <a href="tel:0139560171" class="nav-phone" title="Appeler La Dolce Vita">
-      <i class="fas fa-phone-alt"></i> <span>01 39 56 01 71</span>
+      <i class="fas fa-phone-alt"></i>
+      <span class="nav-phone-desktop">01 39 56 01 71</span>
+      <span class="nav-phone-mobile">Appeler</span>
     </a>
     <div class="navbar__music-wrapper">
       <button class="navbar__music" id="musicToggle" aria-label="Jouer la musique">
@@ -137,6 +139,10 @@
   <div class="hero-content">
     <!-- Foreground elements that sit in normal flow -->
     <div class="hero-foreground">
+      <a href="#contatto" class="hero-status-badge" id="heroStatusBadge">
+        <span class="status-dot"></span>
+        <span class="status-text">Calcul en cours...</span>
+      </a>
       <h1 class="hero-title">La<br><span class="hero-title-alt">Dolce</span><br>Vita</h1>
       <div class="hero-buttons">
         <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
@@ -741,6 +747,87 @@ if (cinemaBanner && cinemaBannerImg) {
   // Initialisation au chargement
   updateParallax();
 }
+
+// Dynamic Restaurant Status (Open / Closed)
+function updateRestaurantStatus() {
+  const badgeElement = document.getElementById('heroStatusBadge');
+  if (!badgeElement) return;
+  const textElement = badgeElement.querySelector('.status-text');
+
+  const now = new Date();
+  const day = now.getDay(); // 0: Sunday, 1: Monday, ..., 6: Saturday
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const time = hours * 60 + minutes;
+
+  const toMins = (h, m) => h * 60 + m;
+
+  const schedules = {
+    0: [], // Sunday
+    1: [], // Monday
+    2: [[12, 0, 14, 0], [19, 0, 21, 30]], // Tuesday
+    3: [[12, 0, 14, 0], [19, 0, 21, 30]], // Wednesday
+    4: [[12, 0, 14, 0], [19, 0, 21, 30]], // Thursday
+    5: [[12, 0, 14, 0], [19, 0, 22, 0]],  // Friday
+    6: [[12, 0, 14, 0], [19, 0, 22, 0]]   // Saturday
+  };
+
+  const daySchedule = schedules[day];
+
+  const formatTime = (h, m) => {
+    return m === 0 ? `${h}h` : `${h}h${String(m).padStart(2, '0')}`;
+  };
+
+  const dayNames = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+
+  // 1. Check if currently open
+  for (let slot of daySchedule) {
+    const startMins = toMins(slot[0], slot[1]);
+    const endMins = toMins(slot[2], slot[3]);
+    if (time >= startMins && time < endMins) {
+      badgeElement.classList.remove('closed-status');
+      badgeElement.classList.add('open-status');
+      textElement.textContent = `Ouvert • Ferme à ${formatTime(slot[2], slot[3])}`;
+      return;
+    }
+  }
+
+  // 2. Closed: find next opening
+  for (let i = 0; i < 7; i++) {
+    const checkDayIndex = (day + i) % 7;
+    const checkSchedule = schedules[checkDayIndex];
+    
+    for (let slot of checkSchedule) {
+      const startMins = toMins(slot[0], slot[1]);
+      if (i === 0 && time >= startMins) {
+        continue;
+      }
+      
+      let dayPrefix = "";
+      if (i === 0) {
+        dayPrefix = "aujourd'hui à ";
+      } else if (i === 1) {
+        dayPrefix = "demain à ";
+      } else {
+        dayPrefix = `${dayNames[checkDayIndex]} à `;
+      }
+      
+      badgeElement.classList.remove('open-status');
+      badgeElement.classList.add('closed-status');
+      textElement.textContent = `Fermé • Ouvre ${dayPrefix}${formatTime(slot[0], slot[1])}`;
+      return;
+    }
+  }
+
+  // Fallback
+  badgeElement.classList.remove('open-status');
+  badgeElement.classList.add('closed-status');
+  textElement.textContent = "Fermé";
+}
+
+// Initialize and check periodically
+updateRestaurantStatus();
+setInterval(updateRestaurantStatus, 30000);
 </script>
 </body>
 </html>

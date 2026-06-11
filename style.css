@@ -392,6 +392,9 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 .nav-phone i {
   font-size: 1.1rem;
 }
+.nav-phone-mobile {
+  display: none;
+}
 
 /* HERO */
 .hero {
@@ -484,6 +487,73 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   border-radius: 2px;
   margin-bottom: 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Hero Status Badge */
+.hero-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(245, 237, 214, 0.3);
+  animation: fadeInStatus 0.8s ease-out forwards;
+}
+
+@keyframes fadeInStatus {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-status-badge.open-status {
+  background: #188A42;
+  color: var(--cream);
+}
+.hero-status-badge.open-status:hover {
+  background: #11632F;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 138, 66, 0.4);
+}
+
+.hero-status-badge.closed-status {
+  background: #CE2B37;
+  color: var(--cream);
+}
+.hero-status-badge.closed-status:hover {
+  background: #A01F25;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(206, 43, 55, 0.4);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 0 6px var(--cream);
+  animation: pulse-dot-cream 2s infinite;
+}
+
+@keyframes pulse-dot-cream {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 237, 216, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(245, 237, 216, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 237, 216, 0);
+  }
 }
 .hero-title {
   font-family: 'Fraunces', serif;
@@ -1871,10 +1941,23 @@ footer::before {
     margin: 0;
     padding: 0;
   }
-  .nav-phone span {
+  .nav-phone span.nav-phone-desktop {
     display: none;
   }
-  .nav-phone {
+  #navbar:not(.scrolled) .nav-phone {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    width: auto;
+    gap: 0.4rem;
+    border: none;
+    border-radius: 0;
+    height: 100%;
+    margin-right: 0;
+  }
+  #navbar:not(.scrolled) .nav-phone .nav-phone-mobile {
+    display: inline;
+  }
+  #navbar.scrolled .nav-phone {
     font-size: 1.1rem;
     padding: 0;
     border: none;
@@ -1883,6 +1966,9 @@ footer::before {
     height: 100%;
     justify-content: center;
     margin-right: 0;
+  }
+  #navbar.scrolled .nav-phone .nav-phone-mobile {
+    display: none;
   }
   .hero {
     padding-left: 6.5rem;
