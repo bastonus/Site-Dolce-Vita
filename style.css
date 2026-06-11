@@ -39,7 +39,6 @@ nav {
   padding: 0 0 0 3rem; /* Padding block is 0 to allow buttons to take full height */
   height: var(--header-height);
   background: var(--cream);
-  border-bottom: 2px solid var(--cream2);
   transition: box-shadow 0.4s;
 }
 
