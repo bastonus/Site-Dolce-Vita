@@ -482,20 +482,29 @@ section { padding: 7rem 2rem; }
   justify-content: center;
   align-items: center;
 }
-.floating-quote-text {
+.floating-quote-container {
   position: absolute;
-  transform: translateY(-50%);
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-width: 1350px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.floating-quote-text {
+  position: relative;
   font-family: 'Fraunces', serif;
-  font-size: clamp(1.6rem, 5vw, 3.2rem);
-  font-style: italic;
-  font-weight: 600;
+  font-size: clamp(1.8rem, 4.4vw, 5.2rem);
+  font-style: normal;
+  font-weight: 700;
   color: var(--brown);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.1;
   text-align: center;
-  max-width: 85%;
-  width: auto;
-  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 .quote-pasta {
   color: #009246; /* Italian flag green */
@@ -506,15 +515,33 @@ section { padding: 7rem 2rem; }
   font-weight: 700;
 }
 .quote-author {
+  position: absolute;
+  right: 0;
+  bottom: -1.8rem;
   font-family: 'Source Serif 4', serif;
-  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  font-size: clamp(0.75rem, 1.3vw, 1.1rem);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--brown-light);
-  display: block;
-  margin-top: 0.6rem;
-  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
+
+@media (max-width: 900px) {
+  .floating-quote-text {
+    white-space: normal;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .quote-author {
+    position: static;
+    display: block;
+    text-align: right;
+    margin-top: 0.5rem;
+  }
+}
+
 
 /* MENU - CHALKBOARD */
 .menu-section { background: var(--cream); }
@@ -926,10 +953,12 @@ footer {
 
 <!-- Floating Quote overlapping About and Menu sections -->
 <div class="floating-quote-wrapper">
-  <p class="floating-quote-text">
-    « La vita è une combinazione di <span class="quote-pasta">pasta</span> e <span class="quote-magia">magia</span>. »
-    <span class="quote-author">— Federico Fellini</span>
-  </p>
+  <div class="floating-quote-container">
+    <div class="floating-quote-text">
+      La vita è una combinazione di <span class="quote-pasta">pasta</span> e <span class="quote-magia">magia</span>.
+      <span class="quote-author">— Federico Fellini</span>
+    </div>
+  </div>
 </div>
 
 <section class="menu-section" id="carta">
