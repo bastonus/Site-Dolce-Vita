@@ -1169,9 +1169,9 @@ section { padding: 7rem 2rem; }
 }
 .chalk-line {
   flex-grow: 1;
-  border-bottom: 2px dashed var(--terracotta);
+  border-bottom: 2px solid var(--terracotta);
   opacity: 0.35;
-  margin: 0 0.4rem;
+  margin: 0 0.5rem;
   transform: translateY(-3px);
   min-width: 1.5rem;
 }
