@@ -100,12 +100,21 @@
     <a href="tel:0139560171" class="nav-phone" title="Appeler La Dolce Vita">
       <i class="fas fa-phone-alt"></i> <span>01 39 56 01 71</span>
     </a>
-    <button class="navbar__music" id="musicToggle" aria-label="Jouer la musique">
-      <i class="fas fa-compact-disc navbar__music-icon"></i>
-      <span class="navbar__music-note" aria-hidden="true">♪</span>
-      <span class="navbar__music-note" aria-hidden="true">♫</span>
-      <span class="navbar__music-note" aria-hidden="true">♩</span>
-    </button>
+    <div class="navbar__music-wrapper">
+      <button class="navbar__music" id="musicToggle" aria-label="Jouer la musique">
+        <span class="navbar__music-icon-wrapper">
+          <i class="fas fa-compact-disc navbar__music-icon"></i>
+        </span>
+        <span class="navbar__music-note" aria-hidden="true">♪</span>
+        <span class="navbar__music-note" aria-hidden="true">♫</span>
+        <span class="navbar__music-note" aria-hidden="true">♩</span>
+        <div class="navbar__music-marquee">
+          <div class="navbar__music-marquee-track">
+            <span>E l'Italia - Vinchenzo Orru &nbsp;&nbsp;•&nbsp;&nbsp; E l'Italia - Vinchenzo Orru &nbsp;&nbsp;•&nbsp;&nbsp;</span>
+          </div>
+        </div>
+      </button>
+    </div>
     <button class="nav-burger" id="burger" aria-label="Menu">
       <svg width="40" height="40" viewBox="0 0 100 100">
         <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
@@ -145,7 +154,7 @@
 
   <!-- Music annotation widget -->
   <div class="hero__music-widget">
-    <span class="hero__music-label">ascolta<br>la musica</span>
+    <span class="hero__music-label">ascolta la musica<br><span class="hero__music-subtitle">« E l'Italia » - Vinchenzo Orru</span></span>
     <!-- arrow: curves from label down to disc -->
     <svg class="hero__music-arrow" viewBox="0 0 38 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M 20 4 C 26 16, 10 30, 18 48" stroke="#F5EDD6" stroke-width="2.2" stroke-linecap="round" fill="none"/>
