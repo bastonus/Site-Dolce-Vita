@@ -2114,31 +2114,12 @@ footer::before {
   left: 0;
   right: 0;
   height: var(--ticker-height);
-  background: var(--brown);
-  color: var(--cream);
-  z-index: 101; /* Above navbar */
-  font-family: 'Source Serif 4', Georgia, serif;
-  font-size: clamp(0.72rem, 2.6vw, 0.95rem);
-  font-weight: 600;
-  border-bottom: 1px solid rgba(245, 237, 214, 0.1);
+  background: var(--slate);
+  z-index: 101;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.top-ticker-bar a {
-  color: var(--cream);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.top-ticker-bar a:hover {
-  color: var(--gold);
-}
-
-.top-ticker-bar i {
-  color: var(--gold);
-  margin-right: 0.3rem;
+  border-bottom: 1px solid rgba(212, 168, 67, 0.2); /* gold hint */
 }
 
 .top-ticker-bar .ticker-content {
@@ -2146,38 +2127,98 @@ footer::before {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
   padding: 0 3rem;
 }
 
-.top-ticker-bar .ticker-item {
+/* Address part */
+.top-ticker-bar .ticker-address {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.78rem, 2vw, 0.95rem);
+  color: var(--cream2);
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
+  gap: 0.4rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
 }
 
+.top-ticker-bar .ticker-address:hover {
+  color: var(--gold);
+}
+
+.top-ticker-bar .ticker-address i {
+  color: var(--gold);
+  font-size: 0.7em;
+}
+
+/* Separator */
 .top-ticker-bar .ticker-separator {
-  color: rgba(245, 237, 214, 0.4);
+  font-family: 'Fraunces', serif;
+  color: rgba(212, 168, 67, 0.35);
+  font-size: 1rem;
 }
 
-/* Status light inside ticker */
-.top-ticker-bar .status-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  margin-right: 0.4rem;
-  display: inline-block;
-  background: var(--cream);
-  box-shadow: 0 0 6px var(--cream);
-  animation: pulse-dot-cream 2s infinite;
+/* Status part */
+.top-ticker-bar .ticker-status {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: clamp(0.72rem, 1.8vw, 0.88rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  color: var(--cream2);
+}
+
+.top-ticker-bar .ticker-status:hover {
+  opacity: 0.8;
 }
 
 .top-ticker-bar .ticker-status.open-status {
-  color: #85E0A3; /* beautiful light green for readability */
+  color: #A8D8A8; /* soft sage-green */
 }
 
 .top-ticker-bar .ticker-status.closed-status {
-  color: #FF6B6B; /* beautiful light red/terracotta for readability */
+  color: #E8A09A; /* soft dusty rose-red */
+}
+
+/* Status dot inside ticker */
+.top-ticker-bar .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  background: currentColor;
+  animation: pulse-dot-cream 2s infinite;
+}
+
+.top-ticker-bar .ticker-status.open-status .status-dot {
+  box-shadow: 0 0 5px #A8D8A8;
+  animation: pulse-dot-green-soft 2s infinite;
+}
+
+.top-ticker-bar .ticker-status.closed-status .status-dot {
+  box-shadow: 0 0 5px #E8A09A;
+  animation: pulse-dot-red-soft 2s infinite;
+}
+
+@keyframes pulse-dot-green-soft {
+  0%   { box-shadow: 0 0 0 0 rgba(168, 216, 168, 0.7); }
+  70%  { box-shadow: 0 0 0 5px rgba(168, 216, 168, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(168, 216, 168, 0); }
+}
+
+@keyframes pulse-dot-red-soft {
+  0%   { box-shadow: 0 0 0 0 rgba(232, 160, 154, 0.7); }
+  70%  { box-shadow: 0 0 0 5px rgba(232, 160, 154, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 160, 154, 0); }
 }
 
 @media (max-width: 800px) {
@@ -2188,9 +2229,15 @@ footer::before {
 
 @media (max-width: 480px) {
   .top-ticker-bar .ticker-content {
-    padding: 0 0.8rem;
+    padding: 0 1rem;
   }
   .top-ticker-bar .ticker-separator {
-    display: none; /* Hide separator on small screen to save space */
+    display: none;
+  }
+  .top-ticker-bar .ticker-address {
+    font-size: 0.72rem;
+  }
+  .top-ticker-bar .ticker-status {
+    font-size: 0.72rem;
   }
 }
