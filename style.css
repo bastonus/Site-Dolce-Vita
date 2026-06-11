@@ -2124,8 +2124,9 @@ footer::before {
 
 .top-ticker-bar .ticker-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 2rem;
   width: 100%;
   padding: 0 3rem;
 }
