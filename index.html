@@ -64,10 +64,13 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 .nav-logo {
   font-family: 'Fraunces', serif;
   font-size: 1.4rem;
-  font-style: italic;
+  font-style: normal;
   font-weight: 600;
   color: var(--terracotta);
   text-decoration: none;
+}
+.nav-logo-alt {
+  font-style: italic;
 }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links a {
@@ -811,7 +814,7 @@ footer {
 <body>
 
 <nav id="navbar">
-  <a href="#" class="nav-logo">La Dolce Vita</a>
+  <a href="#" class="nav-logo">La <span class="nav-logo-alt">Dolce</span> Vita</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#storia">Notre Histoire</a></li>
     <li><a href="#galleria">Galleria</a></li>
