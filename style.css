@@ -489,6 +489,47 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+/* Hero Metadata Badges */
+.hero-meta-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  animation: fadeInStatus 0.8s ease-out forwards;
+}
+
+.hero-address-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  border-radius: 2px;
+  background: rgba(74, 55, 40, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 237, 214, 0.15);
+  color: var(--cream);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hero-address-badge:hover {
+  transform: translateY(-2px);
+  background: rgba(74, 55, 40, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border-color: rgba(245, 237, 214, 0.3);
+}
+
+.hero-address-badge i {
+  color: var(--gold);
+}
+
 /* Hero Status Badge */
 .hero-status-badge {
   display: inline-flex;
@@ -505,7 +546,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   border: 1px solid rgba(245, 237, 214, 0.3);
-  animation: fadeInStatus 0.8s ease-out forwards;
 }
 
 @keyframes fadeInStatus {
