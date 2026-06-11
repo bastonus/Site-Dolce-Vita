@@ -219,51 +219,31 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
 .hero-phrase-card {
   position: absolute;
-  right: 2rem;
+  right: clamp(1.5rem, 5vw, 4rem); /* Completely to the right of the hero section */
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(245, 237, 216, 0.92);
-  backdrop-filter: blur(10px);
-  border: 1.5px solid var(--cream2);
-  padding: 2.2rem 2rem;
-  border-radius: 8px;
-  box-shadow: 
-    0 10px 30px rgba(74, 55, 40, 0.15), 
-    0 1px 3px rgba(74, 55, 40, 0.1);
-  max-width: 320px;
+  background: var(--sage-dark); /* Solid green background from Toscana theme */
+  padding: 2.2rem;
+  width: 270px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Organic ovoid shape */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
   z-index: 5;
   animation: heroIn 0.9s 0.3s ease backwards;
-}
-.hero-phrase-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    #009246 0%, #009246 33.33%,
-    #F1F2F1 33.33%, #F1F2F1 66.66%,
-    #CE2B37 66.66%, #CE2B37 100%
-  );
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 }
 .hero-phrase-card .hero-sub {
   font-family: 'Source Serif 4', Georgia, serif;
   font-style: italic;
   font-weight: 600;
-  font-size: 1.15rem;
-  color: var(--brown);
+  font-size: 1.02rem;
+  color: var(--cream); /* Cream text for high contrast on green background */
   margin-bottom: 0;
   text-align: center;
   text-shadow: none;
   line-height: 1.6;
-}
-.hero-phrase-ornament {
-  text-align: center;
-  color: var(--terracotta);
-  font-size: 0.9rem;
-  margin-top: 0.8rem;
-  opacity: 0.7;
 }
 .hero-cta {
   display: inline-block;
@@ -744,8 +724,7 @@ footer {
   .hero-phrase-card {
     position: static;
     transform: none;
-    max-width: 100%;
-    margin-top: 2rem;
+    margin: 2rem auto 0;
   }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; top: 68px; background: var(--cream); padding: 2.5rem 2rem; gap: 1.8rem; z-index: 99; border-top: 1px solid var(--cream2); }
   .nav-links.open a { font-size: 1.2rem; }
@@ -801,12 +780,11 @@ footer {
         <a href="tel:0139560171" class="hero-cta hero-cta--secondary"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
       </div>
     </div>
-    
-    <!-- Repositioned Italian Flag Tagline on the Right -->
-    <div class="hero-phrase-card">
-      <p class="hero-sub">« La vraie cuisine italienne, comme à la maison »</p>
-      <div class="hero-phrase-ornament">✦</div>
-    </div>
+  </div>
+  
+  <!-- Repositioned Tagline on the Right (directly inside .hero section for absolute alignment to viewport right) -->
+  <div class="hero-phrase-card">
+    <p class="hero-sub">« La vraie cuisine italienne, comme à la maison »</p>
   </div>
 </section>
 
