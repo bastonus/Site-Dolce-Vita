@@ -675,19 +675,20 @@ section { padding: 7rem 2rem; }
   white-space: nowrap;
 }
 
+/* Split Quote Specific Styles */
 .floating-quote-split .floating-quote-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   white-space: normal;
   text-shadow: none;
-  gap: 2.5rem;
 }
 .floating-quote-split .quote-line-1 {
   color: var(--cream);
   font-size: clamp(1.8rem, 4.4vw, 5.2rem);
   font-weight: 700;
   display: block;
+  transform: translateY(-6px);
 }
 .floating-quote-split .quote-line-1 .quote-highlight-light {
   color: #8ce68f;
@@ -698,6 +699,7 @@ section { padding: 7rem 2rem; }
   font-size: clamp(1.8rem, 4.4vw, 5.2rem);
   font-weight: 700;
   display: block;
+  transform: translateY(6px);
 }
 .floating-quote-split .quote-line-2 .quote-highlight-dark {
   color: var(--it-red);
@@ -1000,7 +1002,7 @@ section { padding: 7rem 2rem; }
 /* GALLERY */
 .gallery-section {
   background: var(--sage-dark);
-  padding-bottom: 11rem;
+  padding-bottom: 15rem;
 }
 .gallery-section .section-label {
   color: rgba(255,255,255,0.75);
@@ -1121,7 +1123,7 @@ section { padding: 7rem 2rem; }
 /* CONTACT */
 .contact-section { 
   background: linear-gradient(145deg, #f0e8d8 0%, #e8d8c4 50%, #ddc9af 100%); 
-  padding: 10rem 0 4rem;
+  padding: 14rem 0 4rem;
 }
 .contact-grid {
   display: grid;
