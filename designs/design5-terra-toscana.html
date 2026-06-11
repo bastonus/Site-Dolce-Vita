@@ -482,26 +482,20 @@ section { padding: 7rem 2rem; }
   justify-content: center;
   align-items: center;
 }
-.floating-quote-box {
-  position: absolute;
-  transform: translateY(-50%) rotate(-1deg);
-  background: var(--white);
-  padding: 1.5rem 3rem;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(74, 55, 40, 0.12);
-  border: 1.5px dashed var(--terracotta);
-  max-width: 90%;
-  width: auto;
-}
 .floating-quote-text {
+  position: absolute;
+  transform: translateY(-50%);
   font-family: 'Fraunces', serif;
-  font-size: clamp(1.3rem, 4vw, 2.5rem);
+  font-size: clamp(1.6rem, 5vw, 3.2rem);
   font-style: italic;
   font-weight: 600;
   color: var(--brown);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.3;
   text-align: center;
+  max-width: 85%;
+  width: auto;
+  pointer-events: none;
 }
 .quote-pasta {
   color: #009246; /* Italian flag green */
@@ -510,6 +504,16 @@ section { padding: 7rem 2rem; }
 .quote-magia {
   color: #CE2B37; /* Italian flag red */
   font-weight: 700;
+}
+.quote-author {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brown-light);
+  display: block;
+  margin-top: 0.6rem;
+  letter-spacing: 0.05em;
 }
 
 /* MENU - CHALKBOARD */
@@ -922,9 +926,10 @@ footer {
 
 <!-- Floating Quote overlapping About and Menu sections -->
 <div class="floating-quote-wrapper">
-  <div class="floating-quote-box">
-    <p class="floating-quote-text">« La vita è une combinazione di <span class="quote-pasta">pasta</span> e <span class="quote-magia">magia</span>. »</p>
-  </div>
+  <p class="floating-quote-text">
+    « La vita è une combinazione di <span class="quote-pasta">pasta</span> e <span class="quote-magia">magia</span>. »
+    <span class="quote-author">— Federico Fellini</span>
+  </p>
 </div>
 
 <section class="menu-section" id="carta">
