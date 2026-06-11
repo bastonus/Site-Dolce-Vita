@@ -472,25 +472,45 @@ section { padding: 7rem 2rem; }
   margin-top: 0.25rem;
 }
 
-/* QUOTE */
-.quote-section {
-  background: var(--cream2);
-  padding: 6rem 2rem; text-align: center;
+/* FLOATING QUOTE */
+.floating-quote-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.quote-mark {
-  font-family: 'Fraunces', serif;
-  font-size: 8rem; line-height: 0.5;
-  color: var(--terracotta); opacity: 0.2;
-  display: block; margin-bottom: 2rem;
+.floating-quote-box {
+  position: absolute;
+  transform: translateY(-50%) rotate(-1deg);
+  background: var(--white);
+  padding: 1.5rem 3rem;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(74, 55, 40, 0.12);
+  border: 1.5px dashed var(--terracotta);
+  max-width: 90%;
+  width: auto;
 }
-.quote-text {
+.floating-quote-text {
   font-family: 'Fraunces', serif;
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-style: italic; font-weight: 300;
+  font-size: clamp(1.3rem, 4vw, 2.5rem);
+  font-style: italic;
+  font-weight: 600;
   color: var(--brown);
-  max-width: 750px; margin: 0 auto 1.5rem; line-height: 1.5;
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
 }
-.quote-author { font-size: 0.82rem; letter-spacing: 0.2em; color: var(--brown-light); font-style: italic; }
+.quote-pasta {
+  color: #009246; /* Italian flag green */
+  font-weight: 700;
+}
+.quote-magia {
+  color: #CE2B37; /* Italian flag red */
+  font-weight: 700;
+}
 
 /* MENU - CHALKBOARD */
 .menu-section { background: var(--cream); }
@@ -900,13 +920,12 @@ footer {
 
 <!-- Stats moved to About section -->
 
-<section class="quote-section">
-  <div class="container">
-    <span class="quote-mark">❝</span>
-    <p class="quote-text">La vita è une combinazione di pasta e magia.</p>
-    <cite class="quote-author">— Federico Fellini</cite>
+<!-- Floating Quote overlapping About and Menu sections -->
+<div class="floating-quote-wrapper">
+  <div class="floating-quote-box">
+    <p class="floating-quote-text">« La vita è une combinazione di <span class="quote-pasta">pasta</span> e <span class="quote-magia">magia</span>. »</p>
   </div>
-</section>
+</div>
 
 <section class="menu-section" id="carta">
   <div class="container">
