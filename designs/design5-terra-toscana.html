@@ -49,17 +49,7 @@ nav {
   border-bottom: 2px solid var(--cream2);
   transition: box-shadow 0.4s;
 }
-nav::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, 
-    #009246 0%, #009246 33.33%,
-    #F1F2F1 33.33%, #F1F2F1 66.66%,
-    #CE2B37 66.66%, #CE2B37 100%
-  );
-  z-index: 101;
-}
+
 nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 .nav-logo {
   font-family: 'Fraunces', serif;
