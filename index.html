@@ -217,11 +217,14 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   animation: heroIn 0.9s ease backwards;
 }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
-.hero-phrase-card {
+.hero-phrase-wrapper {
   position: absolute;
-  right: clamp(1.5rem, 5vw, 4rem); /* Completely to the right of the hero section */
-  top: 50%;
-  transform: translateY(-50%);
+  right: clamp(1.5rem, 5vw, 4rem);
+  top: 30%; /* Shifted higher up, not centered vertically */
+  z-index: 5;
+  animation: heroIn 0.9s 0.3s ease backwards;
+}
+.hero-phrase-card {
   background: var(--sage-dark); /* Solid green background from Toscana theme */
   padding: 2.2rem;
   width: 270px;
@@ -231,8 +234,11 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   justify-content: center;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* Organic ovoid shape */
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-  z-index: 5;
-  animation: heroIn 0.9s 0.3s ease backwards;
+  transform: rotate(-6deg); /* Tilted/Crooked */
+  transition: transform 0.3s ease;
+}
+.hero-phrase-card:hover {
+  transform: rotate(-3deg) scale(1.02);
 }
 .hero-phrase-card .hero-sub {
   font-family: 'Source Serif 4', Georgia, serif;
@@ -700,8 +706,9 @@ footer {
   .hero-title {
     font-size: clamp(4rem, 12vh, 7.5rem);
   }
-  .hero-phrase-card {
+  .hero-phrase-wrapper {
     right: 1.5rem;
+    top: 30%;
   }
 }
 @media (max-width: 480px) {
@@ -721,10 +728,15 @@ footer {
   .hero-title {
     font-size: clamp(3rem, 10vh, 5rem);
   }
-  .hero-phrase-card {
+  .hero-phrase-wrapper {
     position: static;
     transform: none;
     margin: 2rem auto 0;
+    animation: none;
+  }
+  .hero-phrase-card {
+    margin: 0 auto;
+    transform: rotate(-2deg);
   }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; top: 68px; background: var(--cream); padding: 2.5rem 2rem; gap: 1.8rem; z-index: 99; border-top: 1px solid var(--cream2); }
   .nav-links.open a { font-size: 1.2rem; }
@@ -783,8 +795,10 @@ footer {
   </div>
   
   <!-- Repositioned Tagline on the Right (directly inside .hero section for absolute alignment to viewport right) -->
-  <div class="hero-phrase-card">
-    <p class="hero-sub">« La vraie cuisine italienne, comme à la maison »</p>
+  <div class="hero-phrase-wrapper">
+    <div class="hero-phrase-card">
+      <p class="hero-sub">« La vraie cuisine italienne, comme à la maison »</p>
+    </div>
   </div>
 </section>
 
