@@ -1770,6 +1770,10 @@ footer::before {
   .nav-links.open a { font-size: 1.2rem; }
   .nav-burger { display: flex; }
   .nav-actions { gap: 0.5rem; }
+  /* Make music notes larger on mobile */
+  .navbar__music-note:nth-child(2) { font-size: 1.3rem; }
+  .navbar__music-note:nth-child(3) { font-size: 1.1rem; }
+  .navbar__music-note:nth-child(4) { font-size: 1.2rem; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-visual { aspect-ratio: 4/3; border-radius: 0; }
   .chalk-items { grid-template-columns: 1fr; }
