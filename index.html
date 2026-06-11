@@ -290,6 +290,27 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 }
 .hero-cta span { position: relative; z-index: 1; }
 
+.hero-buttons {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.hero-cta--secondary {
+  border-color: var(--sage);
+  background: var(--sage);
+  color: var(--cream);
+  box-shadow: 0 4px 15px rgba(125, 155, 118, 0.25);
+  animation-delay: 0.5s;
+}
+.hero-cta--secondary:hover {
+  background: var(--sage-dark);
+  border-color: var(--sage-dark);
+  color: var(--cream);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(90, 114, 84, 0.45);
+}
+
 /* SECTION COMMON */
 section { padding: 7rem 2rem; }
 .container { max-width: 1100px; margin: 0 auto; }
@@ -780,7 +801,10 @@ footer {
     <!-- Foreground elements that sit on top -->
     <div class="hero-foreground">
       <div class="hero-badge">🇮🇹 La Trattoria de Sylvia et Franco · Buc</div>
-      <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
+      <div class="hero-buttons">
+        <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
+        <a href="tel:0139560171" class="hero-cta hero-cta--secondary"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
+      </div>
     </div>
     
     <!-- Repositioned Italian Flag Tagline on the Right -->
