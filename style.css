@@ -676,6 +676,9 @@ section { padding: 7rem 2rem; }
 }
 
 /* Split Quote Specific Styles */
+.floating-quote-split .floating-quote-container {
+  transform: translate(-50%, -32%);
+}
 .floating-quote-split .floating-quote-text {
   display: flex;
   flex-direction: column;
