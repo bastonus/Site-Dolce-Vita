@@ -185,14 +185,12 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   padding: 2rem 0;
   max-width: 650px;
   width: 100%;
-  pointer-events: none;
 }
 .hero-foreground {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(5rem, 20vh, 18rem);
-  pointer-events: auto;
+  gap: 2rem;
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
@@ -209,21 +207,14 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 }
 .hero-title {
   font-family: 'Fraunces', serif;
-  font-size: clamp(6rem, 20vh, 16rem);
+  font-size: clamp(5rem, 14vh, 9rem);
   font-style: italic;
   font-weight: 700;
   color: var(--cream);
-  line-height: 0.8;
-  margin-bottom: 0;
+  line-height: 0.85;
+  margin-bottom: 0.5rem;
   text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4), 4px 4px 30px rgba(0, 0, 0, 0.2);
   animation: heroIn 0.9s ease backwards;
-  position: absolute;
-  left: clamp(2rem, 8vw, 6rem);
-  top: 50%;
-  transform: translateY(-50%) rotate(-1deg);
-  z-index: 2;
-  pointer-events: none;
-  user-select: none;
 }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
 .hero-phrase-card {
@@ -716,11 +707,7 @@ footer {
     margin-right: 0.2rem;
   }
   .hero-title {
-    font-size: clamp(4.5rem, 15vh, 9rem);
-    left: 1.5rem;
-  }
-  .hero-foreground {
-    gap: clamp(4rem, 15vh, 10rem);
+    font-size: clamp(4rem, 12vh, 7.5rem);
   }
   .hero-phrase-card {
     right: 1.5rem;
@@ -741,8 +728,7 @@ footer {
     margin-right: 0;
   }
   .hero-title {
-    font-size: clamp(3.5rem, 12vh, 6.5rem);
-    left: 1rem;
+    font-size: clamp(3rem, 10vh, 5rem);
   }
   .hero-phrase-card {
     position: static;
@@ -795,12 +781,10 @@ footer {
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <!-- Massive Title behind the content -->
-    <h1 class="hero-title">La<br>Dolce<br>Vita</h1>
-    
-    <!-- Foreground elements that sit on top -->
+    <!-- Foreground elements that sit in normal flow -->
     <div class="hero-foreground">
       <div class="hero-badge">🇮🇹 La Trattoria de Sylvia et Franco · Buc</div>
+      <h1 class="hero-title">La<br>Dolce<br>Vita</h1>
       <div class="hero-buttons">
         <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
         <a href="tel:0139560171" class="hero-cta hero-cta--secondary"><i class="fas fa-phone-alt"></i> <span>Appeler</span></a>
