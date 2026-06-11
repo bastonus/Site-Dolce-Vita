@@ -1847,6 +1847,9 @@ footer::before {
   .navbar__music:hover .navbar__music-icon-wrapper {
     transform: translateY(-4px) !important;
   }
+  .chalk-name {
+    max-width: 65%;
+  }
   /* Déplacer la bulle de citation sous les boutons */
   .hero-phrase-wrapper {
     position: static;
