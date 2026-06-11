@@ -1162,18 +1162,16 @@ section { padding: 7rem 2rem; }
   transition: none;
 }
 .chalk-name-row {
-  display: flex;
-  align-items: last baseline;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 68%) 1fr auto;
+  column-gap: 0.5rem;
+  align-items: baseline;
   width: 100%;
 }
 .chalk-line {
-  flex-grow: 1;
   border-bottom: 2px solid var(--terracotta);
   opacity: 0.35;
-  margin: 0 0.5rem;
   transform: translateY(-3px);
-  min-width: 1.5rem;
 }
 .chalk-item:hover {
   background: none;
