@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Dolce Vita — Costa Smeralda</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ocean: #006994;
+  --orange: #FF6B2B;
+  --lemon: #FFD700;
+  --coral: #FF4757;
+  --teal: #00B894;
+  --white: #FAFAFA;
+  --dark: #1A2332;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--white); color: var(--dark); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  background: var(--white);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.12); }
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--orange);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark);
+  position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::before {
+  content: '';
+  position: absolute; top: -4px; left: -6px; right: -6px; bottom: -4px;
+  background: var(--lemon);
+  border-radius: 4px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: -1;
+}
+.nav-links a:hover::before { opacity: 1; transform: scale(1); }
+.nav-links a:hover { color: var(--dark); }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; }
+.nav-burger span { width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: all 0.3s; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding-top: 80px;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, var(--ocean) 0%, #004d73 35%, #00897B 60%, var(--teal) 100%);
+}
+.hero-shape1 {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  top: -200px; right: -150px;
+  animation: float1 8s ease-in-out infinite;
+}
+.hero-shape2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(255,215,0,0.1);
+  bottom: -100px; left: -100px;
+  animation: float2 10s ease-in-out infinite;
+}
+.hero-shape3 {
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,107,43,0.15);
+  top: 30%; right: 10%;
+  animation: float3 6s ease-in-out infinite;
+}
+@keyframes float1 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-30px, 20px); } }
+@keyframes float2 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(20px, -30px); } }
+@keyframes float3 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-10px, 10px) scale(1.05); } }
+.hero-content {
+  position: relative; z-index: 1;
+  text-align: center; padding: 2rem;
+}
+.hero-flag {
+  display: inline-flex; gap: 0; border-radius: 4px; overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.hero-flag span { width: 28px; height: 18px; }
+.hero-flag .f1 { background: #009246; }
+.hero-flag .f2 { background: #fff; }
+.hero-flag .f3 { background: #CE2B37; }
+.hero-eyebrow {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1rem;
+}
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  animation: heroIn 0.8s ease backwards;
+}
+.hero-title em { color: var(--lemon); font-style: normal; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 3rem;
+  animation: heroIn 0.8s 0.2s ease backwards;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 0.8rem;
+  background: var(--orange);
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(255,107,43,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: heroIn 0.8s 0.4s ease backwards;
+}
+.hero-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(255,107,43,0.5); }
+.hero-scroll {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,0.6);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+.hero-scroll i { font-size: 1rem; }
+
+/* SECTION */
+section { padding: 6rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--lemon);
+  color: var(--dark);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.section-title em { color: var(--orange); font-style: normal; }
+
+/* ABOUT */
+.about { background: var(--white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--ocean), var(--teal));
+}
+.about-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 40% 40%, rgba(255,255,255,0.1), transparent 70%);
+}
+.about-float {
+  position: absolute;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  top: 1.5rem; right: 1.5rem;
+  background: var(--lemon);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.about-float-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem; font-weight: 800;
+  color: var(--dark); line-height: 1;
+}
+.about-float-label { font-size: 0.6rem; font-weight: 700; color: var(--dark); text-align: center; margin-top: 2px; }
+.about-center-text {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem; font-weight: 600;
+  color: rgba(255,255,255,0.8); letter-spacing: 0.2em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.about-body { font-size: 1.05rem; line-height: 1.85; color: #444; }
+.about-body p { margin-bottom: 1.2rem; }
+.about-sig {
+  display: inline-block; margin-top: 1.5rem;
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 1.2rem; color: var(--orange);
+}
+.about-stats {
+  display: flex; gap: 2rem;
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 2px solid #f0f0f0;
+}
+.about-stat { text-align: center; }
+.about-stat-num {
+  font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+  color: var(--ocean); display: block;
+}
+.about-stat-label { font-size: 0.78rem; color: #888; font-weight: 600; margin-top: 0.2rem; }
+
+/* STATS BANNER */
+.stats-banner {
+  background: var(--orange);
+  padding: 4rem 2rem;
+}
+.stats-grid {
+  max-width: 900px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; text-align: center;
+}
+.banner-num {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800; color: var(--white); line-height: 1;
+}
+.banner-label { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-top: 0.5rem; letter-spacing: 0.05em; }
+
+/* QUOTE */
+.quote-section {
+  background: linear-gradient(135deg, #004d73, var(--teal));
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.quote-inner { max-width: 700px; margin: 0 auto; }
+.quote-text {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 600; color: var(--white); line-height: 1.5; margin-bottom: 1.5rem;
+}
+.quote-author { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.15em; text-transform: uppercase; }
+
+/* MENU */
+.menu-section { background: #f8f9fa; }
+.menu-tabs {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin: 2.5rem 0 2rem;
+}
+.tab-btn {
+  padding: 0.7rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--dark);
+  transition: all 0.3s;
+}
+.tab-btn:hover { border-color: var(--orange); color: var(--orange); }
+.tab-btn.active.t1 { background: var(--orange); color: var(--white); }
+.tab-btn.active.t2 { background: var(--ocean); color: var(--white); }
+.tab-btn.active.t3 { background: var(--coral); color: var(--white); }
+.tab-btn.active.t4 { background: var(--teal); color: var(--white); }
+.tab-btn.active.t5 { background: var(--dark); color: var(--white); }
+.menu-panel { display: none; }
+.menu-panel.active { display: block; }
+.menu-subheading {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  color: var(--dark); letter-spacing: 0.1em; text-transform: uppercase;
+  margin: 2rem 0 1rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.menu-subheading::after { content: ''; flex: 1; height: 2px; background: #e0e0e0; border-radius: 2px; }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.menu-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  display: flex; justify-content: space-between; align-items: start; gap: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-left: 4px solid var(--orange);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.menu-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+.menu-card-name { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.3rem; }
+.menu-card-desc { font-size: 0.82rem; color: #888; font-style: italic; line-height: 1.4; }
+.menu-card-price { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 800; color: var(--orange); white-space: nowrap; flex-shrink: 0; }
+
+/* GALLERY */
+.gallery-section { background: var(--white); }
+.gallery-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+.g-cell {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 1;
+  transition: transform 0.4s;
+}
+.g-cell:hover { transform: scale(1.02); }
+.g-cell:nth-child(1) { aspect-ratio: auto; grid-row: span 2; }
+.g-cell:nth-child(4) { aspect-ratio: auto; grid-column: span 2; }
+.g-cell:nth-child(1) .g-bg { background: linear-gradient(135deg, var(--ocean), #003d57); }
+.g-cell:nth-child(2) .g-bg { background: linear-gradient(135deg, var(--orange), #e05000); }
+.g-cell:nth-child(3) .g-bg { background: linear-gradient(135deg, var(--teal), #007a5e); }
+.g-cell:nth-child(4) .g-bg { background: linear-gradient(135deg, var(--coral), #cc2030); }
+.g-cell:nth-child(5) .g-bg { background: linear-gradient(135deg, #8B5E3C, #5a3a20); }
+.g-cell:nth-child(6) .g-bg { background: linear-gradient(135deg, var(--lemon), #cc9900); }
+.g-cell:nth-child(7) .g-bg { background: linear-gradient(135deg, #6C5CE7, #4834d4); }
+.g-bg { position: absolute; inset: 0; }
+.g-info {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+}
+.g-title { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+.g-sub { font-size: 0.75rem; color: rgba(255,255,255,0.75); margin-top: 0.2rem; }
+.g-icon-wrap {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 1rem;
+}
+
+/* CONTACT */
+.contact-section {
+  background: linear-gradient(135deg, var(--teal), #004d73);
+  padding: 6rem 2rem;
+}
+.contact-section .section-title { color: var(--white); }
+.contact-section .section-tag { background: rgba(255,255,255,0.2); color: var(--white); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  max-width: 700px;
+}
+.contact-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex; gap: 1rem; align-items: start;
+}
+.c-icon {
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 1rem;
+  flex-shrink: 0;
+}
+.c-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; }
+.c-value { color: var(--white); font-size: 0.95rem; line-height: 1.6; }
+.c-value a { color: inherit; text-decoration: none; }
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.footer-logo-wrap {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem; font-weight: 800;
+  color: var(--white); margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+.footer-logo-wrap span { color: var(--orange); }
+.footer-tag { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 2rem; }
+.footer-socials { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+.footer-socials a {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.6);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.footer-socials a:hover { background: var(--orange); color: var(--white); }
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 800px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; top: 68px; background: var(--white); padding: 2rem 1.5rem; gap: 1.5rem; z-index: 99; box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+  .nav-burger { display: flex; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-visual { aspect-ratio: 16/9; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .gallery-mosaic { grid-template-columns: 1fr 1fr; }
+  .g-cell:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+  .g-cell:nth-child(4) { grid-column: span 1; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">La Dolce Vita</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#storia">Notre Histoire</a></li>
+    <li><a href="#galleria">Galleria</a></li>
+    <li><a href="#carta">La Carte</a></li>
+    <li><a href="#contatto">Contact</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-shape1"></div>
+  <div class="hero-shape2"></div>
+  <div class="hero-shape3"></div>
+  <div class="hero-content">
+    <div class="hero-flag"><span class="f1"></span><span class="f2"></span><span class="f3"></span></div>
+    <p class="hero-eyebrow">Trattoria de Sylvia &amp; Franco · Buc, France</p>
+    <h1 class="hero-title">La <em>Dolce</em><br>Vita</h1>
+    <p class="hero-sub">La vraie cuisine italienne, comme à la maison 🤌</p>
+    <a href="#carta" class="hero-cta">Découvrir la carte <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scoprire</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<section class="about" id="storia">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-float">
+          <span class="about-float-num">37</span>
+          <span class="about-float-label">ans de<br>passion</span>
+        </div>
+        <div class="about-center-text">TRATTORIA · ITALIANA · BUC</div>
+      </div>
+      <div class="reveal">
+        <div class="section-tag">Notre Histoire</div>
+        <h2 class="section-title">Un coin d'<em>Italie</em><br>chez vous</h2>
+        <div class="about-body">
+          <p>Chez Sylvia et Franco, pas de chichis : des nappes à carreaux rouges et blancs, des photos du film <em>La Dolce Vita</em> au mur, des ampoules Edison qui baignent la salle d'une lumière dorée.</p>
+          <p>Notre trattoria, c'est un voyage en Italie sans prendre l'avion. Une cuisine généreuse, des produits frais, un Chianti dans le verre et de la musique italienne en fond.</p>
+          <p>On vous y accueille comme en famille — parce que c'est exactement ce que nous sommes.</p>
+        </div>
+        <span class="about-sig">— Sylvia &amp; Franco 🤌</span>
+        <div class="about-stats">
+          <div class="about-stat"><span class="about-stat-num">100%</span><span class="about-stat-label">Fait maison</span></div>
+          <div class="about-stat"><span class="about-stat-num" style="color:var(--orange)">Frais</span><span class="about-stat-label">Produits du marché</span></div>
+          <div class="about-stat"><span class="about-stat-num" style="color:var(--teal)">1987</span><span class="about-stat-label">Depuis toujours</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-banner">
+  <div class="stats-grid">
+    <div class="reveal"><div class="banner-num">37+</div><div class="banner-label">Ans d'expérience</div></div>
+    <div class="reveal"><div class="banner-num">100%</div><div class="banner-label">Produits frais</div></div>
+    <div class="reveal"><div class="banner-num">🤌</div><div class="banner-label">Fatto in casa</div></div>
+  </div>
+</div>
+
+<section class="quote-section">
+  <div class="quote-inner reveal">
+    <p class="quote-text">« La vita è una combinazione di pasta e magia. »</p>
+    <cite class="quote-author">— Federico Fellini</cite>
+  </div>
+</section>
+
+<section class="menu-section" id="carta">
+  <div class="container">
+    <div class="section-tag reveal">Buon Appetito !</div>
+    <h2 class="section-title reveal">La <em>Carte</em></h2>
+    <p style="color:#888; font-style:italic; margin-bottom:0" class="reveal">Des recettes de famille, des produits frais, un savoir-faire transmis de génération en génération</p>
+    <div class="menu-tabs">
+      <button class="tab-btn t1 active" data-tab="aperitivi">🍹 Aperitivi</button>
+      <button class="tab-btn t2" data-tab="primi">🍝 Pâtes &amp; Risottos</button>
+      <button class="tab-btn t3" data-tab="secondi">🥩 Viandes &amp; Poissons</button>
+      <button class="tab-btn t4" data-tab="dolci">🍮 Desserts</button>
+      <button class="tab-btn t5" data-tab="formules">📋 Formules</button>
+    </div>
+
+    <div class="menu-panel active" id="tab-aperitivi">
+      <div class="menu-subheading">Nos Spritz</div>
+      <div class="menu-grid">
+        <div class="menu-card"><div><div class="menu-card-name">Aperol, Hugo ou Limoncello</div><div class="menu-card-desc">Spritz classique au choix</div></div><span class="menu-card-price">9 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Crodino Spritz</div><div class="menu-card-desc">Sans alcool, l'incontournable</div></div><span class="menu-card-price">6 €</span></div>
+      </div>
+      <div class="menu-subheading">Aperitivo</div>
+      <div class="menu-grid">
+        <div class="menu-card"><div><div class="menu-card-name">Marsala</div><div class="menu-card-desc">Amande ou œuf</div></div><span class="menu-card-price">5 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Bellini</div><div class="menu-card-desc">Purée de pêche et prosecco</div></div><span class="menu-card-price">8 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Negroni Maison</div><div class="menu-card-desc">Vermouth, Campari, gin</div></div><span class="menu-card-price">9 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Coupe de Prosecco</div><div class="menu-card-desc">Pétillant et frais</div></div><span class="menu-card-price">7 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Campari, Martini</div><div class="menu-card-desc">Blanc ou rouge</div></div><span class="menu-card-price">6 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Moretti 33cl</div><div class="menu-card-desc">Bière blonde italienne</div></div><span class="menu-card-price">6 €</span></div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="tab-primi">
+      <div class="menu-subheading">Pasta</div>
+      <div class="menu-grid">
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Cappelletti aux trois fromages</div><div class="menu-card-desc">Ricotta, provolone, parmesan et gorgonzola</div></div><span class="menu-card-price" style="color:var(--ocean)">19 €</span></div>
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Ravioli aux deux truffes</div><div class="menu-card-desc">Truffe blanche, truffe noire, foie gras, parmesan</div></div><span class="menu-card-price" style="color:var(--ocean)">24 €</span></div>
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Ravioli aux gambas poêlées</div><div class="menu-card-desc">Basilic, sauce homard et cognac</div></div><span class="menu-card-price" style="color:var(--ocean)">25 €</span></div>
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Carbonara authentica</div><div class="menu-card-desc">Pecorino romano, œuf, guanciale (sans crème)</div></div><span class="menu-card-price" style="color:var(--ocean)">19 €</span></div>
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Rigatoni à la calabrese</div><div class="menu-card-desc">Spianata, tomate, stracciatella</div></div><span class="menu-card-price" style="color:var(--ocean)">19 €</span></div>
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Fettuccine genovese</div><div class="menu-card-desc">Pesto, pignons de pin, tomates confites</div></div><span class="menu-card-price" style="color:var(--ocean)">16 €</span></div>
+      </div>
+      <div class="menu-subheading">Risotto</div>
+      <div class="menu-grid">
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Risotto gambas et asperges</div><div class="menu-card-desc">Riz arborio crémeux</div></div><span class="menu-card-price" style="color:var(--teal)">24 €</span></div>
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Risotto gorgonzola, poire et noisettes</div><div class="menu-card-desc">Mariage sucré-salé</div></div><span class="menu-card-price" style="color:var(--teal)">21 €</span></div>
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Risotto jambon de Parme et truffe noire</div></div><span class="menu-card-price" style="color:var(--teal)">22 €</span></div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="tab-secondi">
+      <div class="menu-subheading">Viandes</div>
+      <div class="menu-grid">
+        <div class="menu-card" style="border-color:var(--coral)"><div><div class="menu-card-name">Polpette de la Mamma</div><div class="menu-card-desc">Bœuf, tomate, mozzarella gratinée</div></div><span class="menu-card-price" style="color:var(--coral)">20 €</span></div>
+        <div class="menu-card" style="border-color:var(--coral)"><div><div class="menu-card-name">Saltimbocca a la romana</div><div class="menu-card-desc">Veau, jambon de Parme, sauge</div></div><span class="menu-card-price" style="color:var(--coral)">24 €</span></div>
+        <div class="menu-card" style="border-color:var(--coral)"><div><div class="menu-card-name">Scaloppine a la parmigiana</div><div class="menu-card-desc">Veau pané, aubergines, parmesan</div></div><span class="menu-card-price" style="color:var(--coral)">25 €</span></div>
+        <div class="menu-card" style="border-color:var(--coral)"><div><div class="menu-card-name">Scaloppine al Marsala</div><div class="menu-card-desc">Sauce onctueuse au Marsala</div></div><span class="menu-card-price" style="color:var(--coral)">23 €</span></div>
+      </div>
+      <div class="menu-subheading">Poissons</div>
+      <div class="menu-grid">
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Calamari alla napoletana</div><div class="menu-card-desc">Tomates fraîches, basilic, ail</div></div><span class="menu-card-price" style="color:var(--ocean)">22 €</span></div>
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Gambas Dolce Vita</div><div class="menu-card-desc">Flambées cognac, sauce poivre vert, risotto</div></div><span class="menu-card-price" style="color:var(--ocean)">27 €</span></div>
+        <div class="menu-card" style="border-color:var(--ocean)"><div><div class="menu-card-name">Fritto Misto</div><div class="menu-card-desc">Calamars, gambas, éperlans, tartare maison</div></div><span class="menu-card-price" style="color:var(--ocean)">27 €</span></div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="tab-dolci">
+      <div class="menu-subheading">Dolci</div>
+      <div class="menu-grid">
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Tiramisu classique</div><div class="menu-card-desc">Café et mascarpone</div></div><span class="menu-card-price" style="color:var(--teal)">9 €</span></div>
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Baba au limoncello</div><div class="menu-card-desc">Liqueur de citron artisanale</div></div><span class="menu-card-price" style="color:var(--teal)">9 €</span></div>
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Panna cotta du moment</div><div class="menu-card-desc">Parfum de saison</div></div><span class="menu-card-price" style="color:var(--teal)">8 €</span></div>
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Tarte della Nonna</div><div class="menu-card-desc">Pâte sablée, crème pâtissière, pignons de pin</div></div><span class="menu-card-price" style="color:var(--teal)">9 €</span></div>
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Café Affogato</div><div class="menu-card-desc">Glace vanille et espresso chaud</div></div><span class="menu-card-price" style="color:var(--teal)">7 €</span></div>
+        <div class="menu-card" style="border-color:var(--teal)"><div><div class="menu-card-name">Coupe Sicilienne</div><div class="menu-card-desc">Sorbet mandarine et Limoncello</div></div><span class="menu-card-price" style="color:var(--teal)">9 €</span></div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="tab-formules">
+      <div class="menu-subheading">Formules Midi</div>
+      <div class="menu-grid">
+        <div class="menu-card"><div><div class="menu-card-name">Plat direct</div><div class="menu-card-desc">Plat du jour au choix</div></div><span class="menu-card-price">16 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Entrée + Plat</div><div class="menu-card-desc">Du mardi au vendredi midi</div></div><span class="menu-card-price">19.50 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Plat + Dessert</div></div><span class="menu-card-price">19.50 €</span></div>
+        <div class="menu-card"><div><div class="menu-card-name">Entrée + Plat + Dessert</div><div class="menu-card-desc">Formule complète</div></div><span class="menu-card-price">25 €</span></div>
+      </div>
+      <div class="menu-subheading">Menu Bambino</div>
+      <div class="menu-grid">
+        <div class="menu-card" style="border-color:var(--lemon)"><div><div class="menu-card-name">Formule Enfant (moins de 10 ans)</div><div class="menu-card-desc">Boisson + Pâtes ou Poulet pané + Glace</div></div><span class="menu-card-price" style="color:#cc9900">13 €</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section" id="galleria">
+  <div class="container">
+    <div class="section-tag reveal">La nostra trattoria</div>
+    <h2 class="section-title reveal">La <em>Galleria</em></h2>
+    <div class="gallery-mosaic">
+      <div class="g-cell reveal"><div class="g-bg"></div><div class="g-info"><div class="g-title">La Salle</div><div class="g-sub">Dolce Vita · Buc</div></div><div class="g-icon-wrap"><i class="fas fa-utensils"></i></div></div>
+      <div class="g-cell reveal"><div class="g-bg"></div><div class="g-info"><div class="g-title">Il Bar</div><div class="g-sub">Aperitivi e Spritz</div></div><div class="g-icon-wrap"><i class="fas fa-cocktail"></i></div></div>
+      <div class="g-cell reveal"><div class="g-bg"></div><div class="g-info"><div class="g-title">Espresso</div><div class="g-sub">Lavazza · Caffè</div></div><div class="g-icon-wrap"><i class="fas fa-coffee"></i></div></div>
+      <div class="g-cell reveal"><div class="g-bg"></div><div class="g-info"><div class="g-title">La Terrazza</div><div class="g-sub">La place du village</div></div><div class="g-icon-wrap"><i class="fas fa-sun"></i></div></div>
+      <div class="g-cell reveal"><div class="g-bg"></div><div class="g-info"><div class="g-title">Les Spiritueux</div><div class="g-sub">Amaretto · Campari</div></div><div class="g-icon-wrap"><i class="fas fa-wine-bottle"></i></div></div>
+      <div class="g-cell reveal"><div class="g-bg"></div><div class="g-info"><div class="g-title">I Dettagli</div><div class="g-sub">Drapeaux italiens</div></div><div class="g-icon-wrap"><i class="fas fa-flag"></i></div></div>
+      <div class="g-cell reveal"><div class="g-bg"></div><div class="g-info"><div class="g-title">Franco, il padrone</div><div class="g-sub">Le patron 🤌</div></div><div class="g-icon-wrap"><i class="fas fa-user-tie"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contatto">
+  <div class="container">
+    <div class="section-tag reveal">Vi aspettiamo!</div>
+    <h2 class="section-title reveal">Venez nous <em style="color:var(--lemon)">voir</em></h2>
+    <div class="contact-grid reveal">
+      <div class="contact-card"><div class="c-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="c-label">Adresse</div><div class="c-value">14, place du Marché<br>78530 Buc, France</div></div></div>
+      <div class="contact-card"><div class="c-icon"><i class="fas fa-phone-alt"></i></div><div><div class="c-label">Téléphone</div><div class="c-value"><a href="tel:0139560171">01 39 56 01 71</a></div></div></div>
+      <div class="contact-card" style="grid-column: span 2"><div class="c-icon"><i class="fas fa-clock"></i></div><div><div class="c-label">Horaires</div><div class="c-value">Mar – Jeu : 12h–14h / 19h–21h30 &nbsp;·&nbsp; Ven – Sam : 12h–14h / 19h–22h &nbsp;·&nbsp; Dim &amp; Lun : Fermé</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-wrap">La Dolce <span>Vita</span></div>
+  <p class="footer-tag">Trattoria de Sylvia &amp; Franco · 14 place du Marché · 78530 Buc</p>
+  <div class="footer-socials">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="TripAdvisor"><i class="fab fa-tripadvisor"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+  </div>
+  <p class="footer-copy">&copy; 2026 La Dolce Vita — Tutti i diritti riservati</p>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cls = btn.classList[1];
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); });
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
