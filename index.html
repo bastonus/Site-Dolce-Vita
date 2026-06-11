@@ -546,6 +546,27 @@ navLinks.querySelectorAll('a').forEach(a => {
   });
 });
 
+// Scroll Spy to detect active section
+const sections = document.querySelectorAll('section[id]');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const activeId = entry.target.getAttribute('id');
+      navLinks.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${activeId}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  });
+}, {
+  rootMargin: '-30% 0px -60% 0px' // Detect sections near the center of the viewport
+});
+sections.forEach(section => navObserver.observe(section));
+
 // Chalkboard Menu Tab switcher
 const tabsIndicator = document.querySelector('.chalk-tabs-indicator');
 function updateTabIndicator(activeBtn) {

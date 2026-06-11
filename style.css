@@ -1896,8 +1896,10 @@ footer::before {
     transition: color 0.2s ease;
     text-decoration: none;
   }
-  .nav-links.open a:hover {
+  .nav-links.open a:hover,
+  .nav-links.open a.active {
     color: var(--brown);
+    font-weight: 900;
   }
   .nav-links.open a::after {
     display: none; /* Remove underline indicator on mobile menu links */
