@@ -56,6 +56,8 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   color: #7aaa72;
 }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links-menu { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links-footer { display: none; }
 .nav-links a {
   text-decoration: none;
   font-family: 'Source Serif 4', serif;
@@ -1834,17 +1836,43 @@ footer::before {
   .nav-links.open {
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Push footer phrase to the bottom */
     position: fixed;
     inset: 0;
     top: var(--header-height);
     background: var(--cream);
-    padding: 2.5rem 2rem 2.5rem 3.2rem;
-    gap: 1.8rem;
+    padding: 3.5rem 2.5rem;
     z-index: 99;
     border-top: 1px solid var(--cream2);
-    /* Left border decoration matching the tricolor tab indicator */
-    border-left: 6px solid transparent;
-    border-image: linear-gradient(to bottom, var(--it-green) 33.3%, #FAFAF5 33.3%, #FAFAF5 66.6%, var(--it-red) 66.6%) 1;
+  }
+  .nav-links.open .nav-links-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    list-style: none;
+    position: relative;
+    padding-left: 2rem;
+  }
+  /* Floating tricolor indicator badge, matching the look of the mobile tab indicator */
+  .nav-links.open .nav-links-menu::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 0.2rem;
+    width: 35px;
+    height: 24px;
+    background: linear-gradient(to bottom, var(--it-green) 33.3%, #FAFAF5 33.3%, #FAFAF5 66.6%, var(--it-red) 66.6%);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+  .nav-links.open .nav-links-footer {
+    display: block;
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--cream2);
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: var(--terracotta);
+    text-align: center;
   }
   .nav-links.open a { font-size: 1.2rem; }
   .nav-burger { display: flex; }
