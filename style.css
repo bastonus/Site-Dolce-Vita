@@ -90,7 +90,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   width: var(--header-height);
   height: 100%;
   border-radius: 0;
-  background: #CE2B37;
+  background: #D98B82; /* Pastel red */
   border: none;
   cursor: pointer;
   padding: 0;
@@ -98,7 +98,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .nav-burger:hover {
-  background: #a82230;
+  background: #C6786F; /* Darker pastel red */
 }
 .nav-burger span {
   display: block;
@@ -110,7 +110,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 
 /* Music toggle button in Toscana Style */
 .navbar__music {
-  background: #CE2B37;
+  background: #D98B82; /* Pastel red */
   color: #fff;
   border: none;
   border-radius: 0;
@@ -135,7 +135,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   width: var(--header-height);
 }
 .navbar__music:hover {
-  background: #a82230;
+  background: #C6786F; /* Darker pastel red */
 }
 .navbar__music-icon {
   font-size: 24px;
@@ -287,7 +287,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   font-family: 'Source Serif 4', Georgia, serif;
   font-size: 0.95rem;
   font-weight: 600;
-  background: #009246;
+  background: #7FB394; /* Pastel green */
   color: #fff;
   text-decoration: none;
   display: inline-flex;
@@ -302,7 +302,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   box-shadow: none;
 }
 .nav-phone:hover {
-  background: #007a3a;
+  background: #6C9F80; /* Darker pastel green */
   color: #fff;
 }
 .nav-phone i {
