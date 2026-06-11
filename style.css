@@ -1853,11 +1853,11 @@ footer::before {
     position: relative;
     padding-left: 2rem;
   }
-  /* Floating tricolor indicator badge, matching the look of the mobile tab indicator but flush to the left without shadow */
+  /* Floating tricolor indicator badge, matching the look of the mobile tab indicator (collé au bord, sans ombrage) */
   .nav-links.open .nav-links-menu::before {
     content: '';
     position: absolute;
-    left: 0;
+    left: -2.5rem;
     top: 0.2rem;
     width: 35px;
     height: 24px;
@@ -1865,19 +1865,27 @@ footer::before {
     box-shadow: none;
   }
   .nav-links.open .nav-links-footer {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     margin-top: auto;
     padding-top: 2rem;
     border-top: 1px dashed var(--cream2);
     text-align: center;
   }
-  .nav-links.open .nav-links-footer p {
+  .nav-links.open .nav-links-footer-quote {
     font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brown);
+    line-height: 1.2;
+  }
+  .nav-links.open .nav-links-footer-silly {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
     color: var(--terracotta);
+    margin-top: 0.2rem;
   }
   .nav-links.open a { font-size: 1.2rem; }
   .nav-burger { display: flex; }
