@@ -1151,12 +1151,9 @@ section { padding: 7rem 2rem; }
 
 /* ── Individual item ── */
 .chalk-item {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  column-gap: 0.5rem;
-  align-items: last baseline;
+  display: flex;
+  flex-direction: column;
   padding: 0.55rem 0;
-  border-bottom: none;
   background: none;
   border-radius: 0;
   box-shadow: none;
@@ -1164,18 +1161,18 @@ section { padding: 7rem 2rem; }
   -webkit-backdrop-filter: none;
   transition: none;
 }
-.chalk-item > div:first-child {
-  display: contents;
+.chalk-name-row {
+  display: flex;
+  align-items: last baseline;
+  justify-content: space-between;
+  width: 100%;
 }
-.chalk-item::after {
-  content: "";
-  grid-column: 2;
-  grid-row: 1;
-  border-bottom: 2px solid var(--terracotta);
+.chalk-line {
+  flex-grow: 1;
+  border-bottom: 2px dashed var(--terracotta);
   opacity: 0.35;
-  align-self: last baseline;
+  margin: 0 0.4rem;
   transform: translateY(-3px);
-  margin: 0 0.25rem;
   min-width: 1.5rem;
 }
 .chalk-item:hover {
@@ -1189,18 +1186,15 @@ section { padding: 7rem 2rem; }
 
 /* ── Item name & desc ── */
 .chalk-name {
-  grid-column: 1;
-  grid-row: 1;
   color: var(--brown);
   font-family: 'Fraunces', serif;
   font-size: 1rem;
   font-weight: 700;
   font-style: normal;
   line-height: 1.25;
+  flex-shrink: 1;
 }
 .chalk-desc {
-  grid-column: 1 / span 3;
-  grid-row: 2;
   color: #594233;
   font-family: 'Source Serif 4', serif;
   font-size: 0.88rem;
@@ -1209,12 +1203,11 @@ section { padding: 7rem 2rem; }
   margin-top: 0.25rem;
   line-height: 1.4;
   opacity: 1;
+  width: 100%;
 }
 
 /* ── Price ── */
 .chalk-price {
-  grid-column: 3;
-  grid-row: 1;
   font-family: 'Fraunces', serif;
   font-size: 1.05rem;
   font-weight: 900;
@@ -1225,7 +1218,6 @@ section { padding: 7rem 2rem; }
   background: none;
   padding: 0;
   border-radius: 0;
-  align-self: last baseline;
 }
 #tab-aperitivi .chalk-price,
 #tab-primi     .chalk-price,
@@ -1846,9 +1838,6 @@ footer::before {
   .navbar__music.playing .navbar__music-icon-wrapper,
   .navbar__music:hover .navbar__music-icon-wrapper {
     transform: translateY(-4px) !important;
-  }
-  .chalk-name {
-    max-width: 65%;
   }
   /* Déplacer la bulle de citation sous les boutons */
   .hero-phrase-wrapper {
