@@ -1840,10 +1840,10 @@ footer::before {
     position: fixed;
     inset: 0;
     top: var(--header-height);
-    background: var(--cream);
+    background: var(--slate); /* Beautiful premium dark slate */
     padding: 3.5rem 2.5rem;
     z-index: 99;
-    border-top: 1px solid var(--cream2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   .nav-links.open .nav-links-menu {
     display: flex;
@@ -1878,17 +1878,23 @@ footer::before {
     font-size: 1.2rem;
     font-style: normal;
     font-weight: 700;
-    color: var(--terracotta);
+    color: var(--cream);
     transition: color 0.2s ease;
     text-decoration: none;
   }
   .nav-links.open a:hover,
   .nav-links.open a.active {
-    color: var(--brown);
+    color: var(--white);
     font-weight: 900;
   }
   .nav-links.open a::after {
     display: none; /* Remove underline indicator on mobile menu links */
+  }
+  .nav-links.open .floating-quote-text {
+    color: var(--cream) !important;
+  }
+  .nav-links.open .quote-author {
+    color: var(--cream2) !important;
   }
   .nav-burger { display: flex; }
   .nav-actions { gap: 0; }
