@@ -13,14 +13,14 @@
   --header-height: 80px;
   --cream: #F5EDD8;
   --cream2: #EFE4C8;
-  --terracotta: #C4603C;
-  --terra-dark: #8B3E22;
-  --terra-light: #E07A55;
-  --sage: #7D9B76;
-  --sage-dark: #5A7254;
+  --terracotta: #CE2B37;     /* Italian flag red (from magia) */
+  --terra-dark: #A6222B;     /* Darker shade of red */
+  --terra-light: #E54B55;    /* Lighter shade of red */
+  --sage: #009246;           /* Italian flag green (from pasta) */
+  --sage-dark: #007337;      /* Darker shade of green */
   --brown: #4A3728;
   --brown-light: #7a5c44;
-  --gold: #D4A843;
+  --gold: #CE2B37;           /* Map gold to red */
   --slate: #3D4F4A;
   --white: #FAFAF7;
 }
@@ -127,7 +127,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   font-family: 'Source Serif 4', Georgia, serif;
   font-size: 0.95rem;
   font-weight: 600;
-  font-style: italic;
   background: var(--terracotta);
   color: var(--cream);
   text-decoration: none;
@@ -297,8 +296,8 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   color: var(--cream);
   text-decoration: none;
   font-family: 'Source Serif 4', serif;
-  font-size: 0.9rem;
-  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
   border-radius: 2px;
   position: relative;
@@ -581,7 +580,7 @@ section { padding: 7rem 2rem; }
   color: var(--cream);
   font-family: 'Fraunces', serif;
   font-size: 0.8rem;
-  font-style: italic;
+  font-weight: 600;
   padding: 0.6rem 1.2rem;
   border-radius: 30px;
   cursor: pointer;
@@ -628,7 +627,7 @@ section { padding: 7rem 2rem; }
   font-family: 'Fraunces', serif;
   font-size: 1rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--cream);
   white-space: nowrap;
   flex-shrink: 0;
   text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
@@ -777,7 +776,7 @@ footer {
   font-family: 'Fraunces', serif;
   font-size: 2.2rem;
   font-style: italic;
-  color: var(--gold);
+  color: var(--terracotta);
   margin-bottom: 0.75rem;
 }
 .footer-tag { font-size: 0.82rem; color: rgba(245,237,216,0.35); font-style: italic; margin-bottom: 2rem; }
