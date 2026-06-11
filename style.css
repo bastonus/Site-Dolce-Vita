@@ -682,9 +682,11 @@ section { padding: 7rem 2rem; }
 .floating-quote-split .floating-quote-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
   white-space: normal;
   text-shadow: none;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 .floating-quote-split .quote-line-1 {
   color: var(--cream);
@@ -692,6 +694,8 @@ section { padding: 7rem 2rem; }
   font-weight: 700;
   display: block;
   transform: translateY(-6px);
+  align-self: flex-start;
+  text-align: left;
 }
 .floating-quote-split .quote-line-1 .quote-highlight-light {
   color: #8ce68f;
@@ -703,6 +707,8 @@ section { padding: 7rem 2rem; }
   font-weight: 700;
   display: block;
   transform: translateY(6px);
+  align-self: flex-end;
+  text-align: right;
 }
 .floating-quote-split .quote-line-2 .quote-highlight-dark {
   color: var(--it-red);
@@ -713,6 +719,8 @@ section { padding: 7rem 2rem; }
   right: auto;
   bottom: auto;
   margin-top: 1rem;
+  align-self: flex-end;
+  text-align: right;
 }
 
 @media (max-width: 900px) {
