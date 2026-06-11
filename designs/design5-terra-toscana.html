@@ -205,12 +205,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   animation: heroIn 0.9s ease backwards;
 }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
-.hero-divider {
-  display: flex; align-items: center; justify-content: flex-start; gap: 1rem;
-  margin: 1.5rem 0;
-}
-.hero-divider-line { width: 80px; height: 1px; background: rgba(255,255,255,0.8); box-shadow: 0 1px 4px rgba(0,0,0,0.5); }
-.hero-divider-icon { color: rgba(245,237,216,0.9); font-size: 0.8rem; text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
 .hero-sub {
   font-family: 'Source Serif 4', serif;
   font-style: italic;
@@ -261,6 +255,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   max-width: 500px;
   animation: heroIn 0.9s 0.3s ease backwards;
+  text-align: left;
 }
 .hero-card .hero-sub {
   margin-bottom: 2rem;
@@ -269,8 +264,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 }
 .hero-card .hero-cta {
   margin-bottom: 0;
-  width: 100%;
-  text-align: center;
   border-color: var(--terracotta);
   background: var(--terracotta);
   color: var(--cream);
@@ -749,11 +742,6 @@ footer {
   <div class="hero-content">
     <div class="hero-badge">🇮🇹 La Trattoria de Sylvia et Franco · Buc</div>
     <h1 class="hero-title">La<br>Dolce<br>Vita</h1>
-    <div class="hero-divider">
-      <div class="hero-divider-line"></div>
-      <span class="hero-divider-icon">✦</span>
-      <div class="hero-divider-line"></div>
-    </div>
     <div class="hero-card">
       <p class="hero-sub">« La vraie cuisine italienne, comme à la maison »</p>
       <a href="#carta" class="hero-cta"><span>Scoprire la Carte</span></a>
