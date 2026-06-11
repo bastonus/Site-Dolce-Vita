@@ -1887,7 +1887,21 @@ footer::before {
     color: var(--terracotta);
     margin-top: 0.2rem;
   }
-  .nav-links.open a { font-size: 1.2rem; }
+  .nav-links.open a {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--terracotta);
+    transition: color 0.2s ease;
+    text-decoration: none;
+  }
+  .nav-links.open a:hover {
+    color: var(--brown);
+  }
+  .nav-links.open a::after {
+    display: none; /* Remove underline indicator on mobile menu links */
+  }
   .nav-burger { display: flex; }
   .nav-actions { gap: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
