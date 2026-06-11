@@ -81,15 +81,27 @@
 
 <div class="top-ticker-bar">
   <div class="ticker-wrap">
-    <div class="ticker-content">
-      <a href="#contatto" class="ticker-item ticker-address">
-        <i class="fas fa-map-marker-alt"></i> 14, place du Marché, Buc
-      </a>
-      <span class="ticker-separator">•</span>
-      <a href="#contatto" class="ticker-item ticker-status" id="headerStatusBadgeTicker">
-        <span class="status-dot"></span>
-        <span class="status-text">Calcul en cours...</span>
-      </a>
+    <div class="ticker-track">
+      <div class="ticker-item-group">
+        <a href="#contatto" class="ticker-item ticker-address">
+          <i class="fas fa-map-marker-alt"></i> 14, place du Marché, Buc
+        </a>
+        <span class="ticker-separator">•</span>
+        <a href="#contatto" class="ticker-item ticker-status" id="headerStatusBadgeTicker">
+          <span class="status-dot"></span>
+          <span class="status-text">Calcul en cours...</span>
+        </a>
+      </div>
+      <div class="ticker-item-group" aria-hidden="true">
+        <a href="#contatto" class="ticker-item ticker-address">
+          <i class="fas fa-map-marker-alt"></i> 14, place du Marché, Buc
+        </a>
+        <span class="ticker-separator">•</span>
+        <div class="ticker-item ticker-status" id="headerStatusBadgeTickerDuplicate">
+          <span class="status-dot"></span>
+          <span class="status-text">Calcul en cours...</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -761,9 +773,12 @@ if (cinemaBanner && cinemaBannerImg) {
 
 // Dynamic Restaurant Status (Open / Closed)
 function updateRestaurantStatus() {
-  const badgeElement = document.getElementById('headerStatusBadgeTicker');
-  if (!badgeElement) return;
-  const textElement = badgeElement.querySelector('.status-text');
+  const badgeElements = [
+    document.getElementById('headerStatusBadgeTicker'),
+    document.getElementById('headerStatusBadgeTickerDuplicate')
+  ].filter(el => el !== null);
+
+  if (badgeElements.length === 0) return;
 
   const now = new Date();
   const day = now.getDay(); // 0: Sunday, 1: Monday, ..., 6: Saturday
@@ -791,49 +806,64 @@ function updateRestaurantStatus() {
 
   const dayNames = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 
+  let isOpen = false;
+  let statusText = "Fermé";
+
   // 1. Check if currently open
   for (let slot of daySchedule) {
     const startMins = toMins(slot[0], slot[1]);
     const endMins = toMins(slot[2], slot[3]);
     if (time >= startMins && time < endMins) {
-      badgeElement.classList.remove('closed-status');
-      badgeElement.classList.add('open-status');
-      textElement.textContent = `Ouvert • Ferme à ${formatTime(slot[2], slot[3])}`;
-      return;
+      isOpen = true;
+      statusText = `Ouvert • Ferme à ${formatTime(slot[2], slot[3])}`;
+      break;
     }
   }
 
   // 2. Closed: find next opening
-  for (let i = 0; i < 7; i++) {
-    const checkDayIndex = (day + i) % 7;
-    const checkSchedule = schedules[checkDayIndex];
-    
-    for (let slot of checkSchedule) {
-      const startMins = toMins(slot[0], slot[1]);
-      if (i === 0 && time >= startMins) {
-        continue;
-      }
+  if (!isOpen) {
+    let found = false;
+    for (let i = 0; i < 7; i++) {
+      const checkDayIndex = (day + i) % 7;
+      const checkSchedule = schedules[checkDayIndex];
       
-      let dayPrefix = "";
-      if (i === 0) {
-        dayPrefix = "aujourd'hui à ";
-      } else if (i === 1) {
-        dayPrefix = "demain à ";
-      } else {
-        dayPrefix = `${dayNames[checkDayIndex]} à `;
+      for (let slot of checkSchedule) {
+        const startMins = toMins(slot[0], slot[1]);
+        if (i === 0 && time >= startMins) {
+          continue;
+        }
+        
+        let dayPrefix = "";
+        if (i === 0) {
+          dayPrefix = "aujourd'hui à ";
+        } else if (i === 1) {
+          dayPrefix = "demain à ";
+        } else {
+          dayPrefix = `${dayNames[checkDayIndex]} à `;
+        }
+        
+        statusText = `Fermé • Ouvre ${dayPrefix}${formatTime(slot[0], slot[1])}`;
+        found = true;
+        break;
       }
-      
-      badgeElement.classList.remove('open-status');
-      badgeElement.classList.add('closed-status');
-      textElement.textContent = `Fermé • Ouvre ${dayPrefix}${formatTime(slot[0], slot[1])}`;
-      return;
+      if (found) break;
     }
   }
 
-  // Fallback
-  badgeElement.classList.remove('open-status');
-  badgeElement.classList.add('closed-status');
-  textElement.textContent = "Fermé";
+  // Update all badges
+  badgeElements.forEach(badgeElement => {
+    const textElement = badgeElement.querySelector('.status-text');
+    if (isOpen) {
+      badgeElement.classList.remove('closed-status');
+      badgeElement.classList.add('open-status');
+    } else {
+      badgeElement.classList.remove('open-status');
+      badgeElement.classList.add('closed-status');
+    }
+    if (textElement) {
+      textElement.textContent = statusText;
+    }
+  });
 }
 
 // Initialize and check periodically

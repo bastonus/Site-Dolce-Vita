@@ -2030,7 +2030,7 @@ footer::before {
     justify-content: space-between; /* Push footer phrase to the bottom */
     position: fixed;
     inset: 0;
-    top: var(--header-height);
+    top: calc(var(--header-height) + var(--ticker-height));
     background: var(--slate); /* Beautiful premium dark slate */
     padding: 3.5rem 2.5rem;
     z-index: 99;
@@ -2147,10 +2147,17 @@ footer::before {
   white-space: nowrap;
 }
 
-.top-ticker-bar .ticker-content {
+.top-ticker-bar .ticker-track {
   display: inline-flex;
   align-items: center;
-  gap: 1.5rem;
+  white-space: nowrap;
+}
+
+.top-ticker-bar .ticker-item-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .top-ticker-bar .ticker-item {
@@ -2182,22 +2189,24 @@ footer::before {
   color: #FF6B6B; /* beautiful light red/terracotta for readability */
 }
 
-/* Marquee scrolling animation on mobile / small screens */
+/* Marquee scrolling animation on mobile / small screens (seamless infinite loop) */
 @media (max-width: 600px) {
-  .top-ticker-bar .ticker-content {
-    padding-left: 100%;
-    animation: topTickerMarquee 22s linear infinite;
+  .top-ticker-bar .ticker-track {
+    animation: topTickerMarquee 20s linear infinite;
   }
 }
 
 @media (min-width: 601px) {
-  .top-ticker-bar .ticker-content {
+  .top-ticker-bar .ticker-track {
     justify-content: center;
     width: 100%;
+  }
+  .top-ticker-bar .ticker-item-group[aria-hidden="true"] {
+    display: none;
   }
 }
 
 @keyframes topTickerMarquee {
   0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-100%, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
