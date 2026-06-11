@@ -110,8 +110,8 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 
 /* Music toggle button in Toscana Style */
 .navbar__music {
-  background: #fff;
-  color: var(--brown);
+  background: #CE2B37;
+  color: #fff;
   border: none;
   border-radius: 0;
   cursor: pointer;
@@ -135,11 +135,11 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   width: var(--header-height);
 }
 .navbar__music:hover {
-  background: #f4eae1;
+  background: #a82230;
 }
 .navbar__music-icon {
   font-size: 24px;
-  color: var(--brown);
+  color: #fff;
   display: inline-block;
   transition: color 0.3s;
   line-height: 1;
@@ -147,7 +147,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 }
 .navbar__music.playing .navbar__music-icon {
   animation: spinDisc 2.5s linear infinite;
-  color: var(--brown);
+  color: #fff;
 }
 /* Navbar floating notes */
 .navbar__music-note {
@@ -1703,6 +1703,19 @@ footer::before {
     font-size: 0.85rem;
     padding: 0 1rem;
     height: 100%;
+  }
+  .navbar__music {
+    background: #fff;
+    color: var(--brown);
+  }
+  .navbar__music:hover {
+    background: #f4eae1;
+  }
+  .navbar__music-icon {
+    color: var(--brown);
+  }
+  .navbar__music.playing .navbar__music-icon {
+    color: var(--brown);
   }
   .hero-title {
     font-size: clamp(4rem, 12vh, 7.5rem);
