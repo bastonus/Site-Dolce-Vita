@@ -167,12 +167,34 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   text-align: left;
   overflow: hidden;
   padding-top: 80px;
-  padding-left: clamp(4.5rem, 13vw, 11rem);
+  padding-left: clamp(7rem, 17vw, 13.5rem);
   padding-right: 2rem;
+}
+.hero-left-band {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: clamp(5rem, 12vw, 8.5rem);
+  background: var(--sage-dark);
+  z-index: 4;
+}
+.hero-left-band::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 9px;
+  background: linear-gradient(90deg, 
+    #009246 0%, #009246 33.33%,
+    #F1F2F1 33.33%, #F1F2F1 66.66%,
+    #CE2B37 66.66%, #CE2B37 100%
+  );
 }
 .hero-vertical-text {
   position: absolute;
-  left: clamp(1.5rem, 4.5vw, 4.5rem);
+  left: calc(clamp(5rem, 12vw, 8.5rem) / 2);
   top: calc(var(--header-height) + 0.5rem);
   height: calc(100vh - var(--header-height) - 1rem);
   display: flex;
@@ -749,11 +771,14 @@ footer {
     margin-right: 0;
   }
   .hero {
-    padding-left: 4.5rem;
+    padding-left: 6.5rem;
+  }
+  .hero-left-band {
+    width: 4.5rem;
   }
   .hero-vertical-text {
-    left: 1.5rem;
-    font-size: 1.1rem;
+    left: 2.25rem;
+    font-size: 1.15rem;
     top: calc(var(--header-height) + 0.25rem);
     height: calc(100vh - var(--header-height) - 0.5rem);
   }
@@ -813,6 +838,7 @@ footer {
     </video>
   </div>
   <div class="hero-overlay"></div>
+  <div class="hero-left-band"></div>
   <div class="hero-vertical-text">La Trattoria de Sylvia et Franco</div>
   <div class="hero-content">
     <!-- Foreground elements that sit in normal flow -->
