@@ -134,7 +134,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   pointer-events: auto;
   transform: scale(1);
   width: 38px;
-  margin-left: 0.5rem;
 }
 .navbar__music:hover {
   background: var(--terra-dark);
@@ -282,7 +281,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   height: 38px;
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-  margin-right: 0.5rem;
   box-shadow: 0 2px 8px rgba(196,96,60,0.15);
 }
 .nav-phone:hover {
@@ -1689,7 +1687,6 @@ footer::before {
     font-size: 0.85rem;
     padding: 0 0.8rem;
     height: 38px;
-    margin-right: 0.2rem;
   }
   .hero-title {
     font-size: clamp(4rem, 12vh, 7.5rem);
