@@ -882,6 +882,21 @@ section { padding: 7rem 2rem; }
 #tab-dolci     .chalk-price,
 #tab-formules  .chalk-price { color: var(--brown); background: none; }
 
+/* Séparateur tricolore entre carte et galerie */
+.menu-gallery-divider {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.menu-gallery-divider span {
+  width: 100%;
+  height: 5px;
+  display: block;
+}
+.menu-gallery-divider span:nth-child(1) { background: var(--it-green); }
+.menu-gallery-divider span:nth-child(2) { background: var(--white); }
+.menu-gallery-divider span:nth-child(3) { background: var(--it-red); }
+
 /* GALLERY */
 .gallery-section {
   background: var(--sage-dark);
