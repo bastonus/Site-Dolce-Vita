@@ -87,7 +87,7 @@
       <div class="about-visual">
         <img src="assets/images/image_4.jpeg" alt="Franco derrière son bar">
       </div>
-      <div>
+      <div class="about-text-wrapper">
         <div class="about-stats-grid">
           <div class="about-stat-item"><div class="about-stat-num">37+</div><div class="about-stat-label">Ans d'expérience</div></div>
           <div class="about-stat-item"><div class="about-stat-num">100%</div><div class="about-stat-label">Fait maison</div></div>
@@ -100,6 +100,13 @@
           <p>Du bar où trônent fièrement les drapeaux italiens aux étagères chargées d'Amaretto et de Campari, chaque recoin raconte <em>notre histoire.</em></p>
         </div>
         <span class="about-sig">— Sylvia &amp; Franco 🤌</span>
+        <!-- Carte postale du Parrain -->
+        <div class="postcard-float" title="Vito & Michael Corleone">
+          <div class="postcard-paper">
+            <img src="assets/images/al-pacino.jpg" alt="Vito & Michael Corleone - Le Parrain" class="postcard-img">
+            <div class="postcard-caption">Il Padrino, 1972</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -223,10 +230,12 @@
   </div>
 </section>
 
-<div class="menu-gallery-divider">
-  <span></span>
-  <span></span>
-  <span></span>
+<!-- Section intermédiaire : Le Baiser de la Dolce Vita -->
+<div class="cinema-banner" id="cinemaBanner" aria-label="Le Baiser de la Dolce Vita">
+  <div class="cinema-banner-img-wrapper">
+    <img src="assets/images/le-baiser-de-la-dolce-vita.jpg" alt="Le Baiser de la Dolce Vita" class="cinema-banner-img">
+  </div>
+  <div class="cinema-banner-overlay"></div>
 </div>
 
 <section class="gallery-section" id="galleria">
@@ -559,6 +568,32 @@ if (bgMusic) {
   bgMusic.volume = 0.35;
   if (musicToggle) musicToggle.addEventListener('click', toggleMusic);
   if (musicToggleHero) musicToggleHero.addEventListener('click', toggleMusic);
+}
+
+// Parallax fluide pour le baiser de la Dolce Vita
+const cinemaBanner = document.getElementById('cinemaBanner');
+const cinemaBannerImg = cinemaBanner ? cinemaBanner.querySelector('.cinema-banner-img') : null;
+
+if (cinemaBanner && cinemaBannerImg) {
+  function updateParallax() {
+    const rect = cinemaBanner.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    
+    if (rect.top < viewportHeight && rect.bottom > 0) {
+      const totalDist = viewportHeight + rect.height;
+      const scrolled = (viewportHeight - rect.top) / totalDist;
+      
+      // On décale l'image en hauteur.
+      // 240px de course totale pour un défilement plus rapide
+      const translateY = (scrolled - 0.5) * 240;
+      cinemaBannerImg.style.transform = `translate3d(0, ${translateY}px, 0)`;
+    }
+  }
+  
+  window.addEventListener('scroll', updateParallax);
+  window.addEventListener('resize', updateParallax);
+  // Initialisation au chargement
+  updateParallax();
 }
 </script>
 </body>
