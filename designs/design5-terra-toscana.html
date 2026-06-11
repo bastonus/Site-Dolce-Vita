@@ -10,6 +10,7 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
+  --header-height: 80px;
   --cream: #F5EDD8;
   --cream2: #EFE4C8;
   --terracotta: #C4603C;
@@ -172,11 +173,16 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 .hero-vertical-text {
   position: absolute;
   left: clamp(1.5rem, 4.5vw, 4.5rem);
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(-90deg);
+  top: calc(var(--header-height) + 2rem);
+  height: calc(100vh - var(--header-height) - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   white-space: nowrap;
   font-family: 'Fraunces', serif;
-  font-size: clamp(1.4rem, 4.5vh, 3.2rem);
+  font-size: clamp(1.2rem, 3.5vh, 2.8rem);
   font-style: italic;
   font-weight: 700;
   color: var(--cream);
@@ -184,9 +190,6 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   letter-spacing: 0.05em;
   z-index: 5;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
   opacity: 0.95;
 }
 .hero-video-bg {
@@ -709,6 +712,9 @@ footer {
 /* REVEAL animations removed */
 
 @media (max-width: 800px) {
+  :root {
+    --header-height: 70px;
+  }
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .nav-phone {
@@ -743,7 +749,9 @@ footer {
   }
   .hero-vertical-text {
     left: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    top: calc(var(--header-height) + 1rem);
+    height: calc(100vh - var(--header-height) - 2rem);
   }
   .hero-title {
     font-size: clamp(3rem, 10vh, 5rem);
