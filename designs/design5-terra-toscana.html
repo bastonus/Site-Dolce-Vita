@@ -117,14 +117,40 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   to { transform: rotate(360deg); }
 }
 
+/* Phone number styling in header */
+.nav-phone {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--terracotta);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin-right: 0.5rem;
+}
+.nav-phone:hover {
+  color: var(--terra-dark);
+  transform: translateY(-1px);
+}
+.nav-phone i {
+  font-size: 0.95rem;
+}
+
 /* HERO */
 .hero {
   min-height: 100vh;
   position: relative;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center;
+  display: flex; flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
   overflow: hidden;
   padding-top: 80px;
+  padding-left: clamp(2rem, 8vw, 6rem);
+  padding-right: 2rem;
 }
 .hero-video-bg {
   position: absolute; inset: 0;
@@ -138,7 +164,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   background: rgba(0, 0, 0, 0.35);
   z-index: 1;
 }
-.hero-content { position: relative; z-index: 3; padding: 2rem; }
+.hero-content { position: relative; z-index: 3; padding: 2rem 0; max-width: 650px; }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--terracotta);
@@ -164,7 +190,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px) rotate(-1deg); } to { opacity: 1; transform: none; } }
 .hero-divider {
-  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  display: flex; align-items: center; justify-content: flex-start; gap: 1rem;
   margin: 1.5rem 0;
 }
 .hero-divider-line { width: 80px; height: 1px; background: rgba(245,237,216,0.5); }
@@ -604,6 +630,25 @@ footer {
 @media (max-width: 800px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
+  .nav-phone {
+    font-size: 1.1rem;
+    margin-right: 0.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .nav-phone span {
+    display: none;
+  }
+  .nav-phone {
+    font-size: 1.1rem;
+    padding: 8px;
+    border: 1.5px solid var(--terracotta);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    margin-right: 0;
+  }
   .nav-links.open { display: flex; flex-direction: column; position: fixed; inset: 0; top: 68px; background: var(--cream); padding: 2.5rem 2rem; gap: 1.8rem; z-index: 99; border-top: 1px solid var(--cream2); }
   .nav-links.open a { font-size: 1.2rem; }
   .nav-burger { display: flex; }
@@ -629,6 +674,9 @@ footer {
     <li><a href="#contatto">Contact</a></li>
   </ul>
   <div style="display: flex; align-items: center; gap: 1.2rem;">
+    <a href="tel:0139560171" class="nav-phone" title="Appeler La Dolce Vita">
+      <i class="fas fa-phone-alt"></i> <span>01 39 56 01 71</span>
+    </a>
     <button class="navbar__music" id="musicToggle" aria-label="Jouer la musique">
       <span class="navbar__music-disc">🎵</span>
     </button>
