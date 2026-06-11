@@ -698,7 +698,7 @@ section { padding: 7rem 2rem; }
   text-align: left;
 }
 .floating-quote-split .quote-line-1 .quote-highlight-light {
-  color: var(--it-red);
+  color: var(--cream);
   font-weight: 800;
 }
 .floating-quote-split .quote-line-2 {
@@ -711,7 +711,7 @@ section { padding: 7rem 2rem; }
   text-align: right;
 }
 .floating-quote-split .quote-line-2 .quote-highlight-dark {
-  color: var(--it-green);
+  color: var(--it-red);
   font-weight: 800;
 }
 .floating-quote-split .quote-author {
