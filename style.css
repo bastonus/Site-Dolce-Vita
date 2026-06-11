@@ -1871,7 +1871,6 @@ footer::before {
     gap: 0.5rem;
     margin-top: auto;
     padding-top: 2rem;
-    border-top: 1px dashed var(--cream2);
     text-align: center;
   }
   .nav-links.open .nav-links-footer-quote {
@@ -1881,11 +1880,13 @@ footer::before {
     color: var(--brown);
     line-height: 1.2;
   }
-  .nav-links.open .nav-links-footer-silly {
-    font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
+  .nav-links.open .quote-green {
+    color: var(--sage);
+    font-weight: 700;
+  }
+  .nav-links.open .quote-red {
     color: var(--terracotta);
-    margin-top: 0.2rem;
+    font-weight: 700;
   }
   .nav-links.open a {
     font-family: 'Fraunces', serif;
