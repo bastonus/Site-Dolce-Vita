@@ -3,6 +3,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --header-height: 80px;
+  --ticker-height: 36px;
   --cream: #F5EDD8;
   --cream2: #EFE4C8;
   --terracotta: #C4603C;
@@ -34,12 +35,12 @@ body::before {
 
 /* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: var(--ticker-height); left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 0 0 3rem; /* Padding block is 0 to allow buttons to take full height */
   height: var(--header-height);
   background: var(--cream);
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, top 0.3s;
 }
 
 nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
@@ -405,7 +406,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   justify-content: center;
   text-align: left;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: calc(var(--header-height) + var(--ticker-height));
   padding-left: clamp(7rem, 17vw, 13.5rem);
   padding-right: 2rem;
 }
@@ -434,8 +435,8 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 .hero-vertical-text {
   position: absolute;
   left: calc(clamp(5rem, 12vw, 8.5rem) / 2);
-  top: calc(var(--header-height) + 0.5rem);
-  height: calc(100vh - var(--header-height) - 1rem);
+  top: calc(var(--header-height) + var(--ticker-height) + 0.5rem);
+  height: calc(100vh - var(--header-height) - var(--ticker-height) - 1rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1957,7 +1958,7 @@ footer::before {
   /* Aligner le contenu hero en haut pour que le titre soit premier */
   .hero {
     justify-content: flex-start;
-    padding-top: calc(var(--header-height) + 2rem);
+    padding-top: calc(var(--header-height) + var(--ticker-height) + 2rem);
   }
 }
 @media (max-width: 480px) {
@@ -2010,8 +2011,8 @@ footer::before {
   .hero-vertical-text {
     left: 2.25rem;
     font-size: 1.15rem;
-    top: calc(var(--header-height) + 0.25rem);
-    height: calc(100vh - var(--header-height) - 0.5rem);
+    top: calc(var(--header-height) + var(--ticker-height) + 0.25rem);
+    height: calc(100vh - var(--header-height) - var(--ticker-height) - 0.5rem);
   }
   .hero-title {
     font-size: clamp(3rem, 10vh, 5rem);
@@ -2104,4 +2105,99 @@ footer::before {
     font-size: 0.72rem;
   }
   .chalk-board { padding: 2rem 1.5rem; }
+}
+
+/* Announcement Ticker Bar */
+.top-ticker-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--ticker-height);
+  background: var(--brown);
+  color: var(--cream);
+  z-index: 101; /* Above navbar */
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(245, 237, 214, 0.1);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.top-ticker-bar a {
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.top-ticker-bar a:hover {
+  color: var(--gold);
+}
+
+.top-ticker-bar i {
+  color: var(--gold);
+  margin-right: 0.3rem;
+}
+
+.top-ticker-bar .ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.top-ticker-bar .ticker-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.top-ticker-bar .ticker-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.top-ticker-bar .ticker-separator {
+  color: rgba(245, 237, 214, 0.4);
+}
+
+/* Status light inside ticker */
+.top-ticker-bar .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+  display: inline-block;
+  background: var(--cream);
+  box-shadow: 0 0 6px var(--cream);
+  animation: pulse-dot-cream 2s infinite;
+}
+
+.top-ticker-bar .ticker-status.open-status {
+  color: #85E0A3; /* beautiful light green for readability */
+}
+
+.top-ticker-bar .ticker-status.closed-status {
+  color: #FF6B6B; /* beautiful light red/terracotta for readability */
+}
+
+/* Marquee scrolling animation on mobile / small screens */
+@media (max-width: 600px) {
+  .top-ticker-bar .ticker-content {
+    padding-left: 100%;
+    animation: topTickerMarquee 22s linear infinite;
+  }
+}
+
+@media (min-width: 601px) {
+  .top-ticker-bar .ticker-content {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@keyframes topTickerMarquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
 }
