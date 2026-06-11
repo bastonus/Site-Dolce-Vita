@@ -112,7 +112,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 .navbar__music {
   background: var(--brown);
   color: #fff;
-  border: 1.5px solid #2a1f18;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -141,12 +141,12 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   transform: scale(1.1);
 }
 .navbar__music-icon {
-  font-size: 38px;
+  font-size: 24px;
   color: #fff;
   display: inline-block;
   transition: color 0.3s;
   line-height: 1;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
 }
 .navbar__music.playing .navbar__music-icon {
   animation: spinDisc 2.5s linear infinite;
