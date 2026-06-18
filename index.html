@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Dolce Vita — Restaurant &amp; Trattoria Italienne à Buc (78)</title>
-<meta name="description" content="Découvrez La Dolce Vita, restaurant italien traditionnel à Buc (78). Pâtes fraîches, spécialités maison, ambiance chaleureuse de trattoria par Sylvia &amp; Franco depuis 1987.">
+<meta name="description" content="Découvrez La Dolce Vita, restaurant italien traditionnel à Buc (78). Pâtes fraîches, spécialités maison, ambiance de trattoria par Sylvia &amp; Franco (en duo depuis 2000).">
 <meta name="keywords" content="La Dolce Vita Buc, restaurant italien Buc, trattoria Buc, restaurant 78, pâtes fraîches Buc, Sylvia Franco Buc, restaurant italien Versailles, manger italien Buc">
 <meta name="author" content="La Dolce Vita">
 <meta name="robots" content="index, follow">
@@ -49,8 +49,8 @@
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 48.770119,
-    "longitude": 2.122176
+    "latitude": 48.7760524,
+    "longitude": 2.1297628
   },
   "url": "https://www.ladolcevita-buc.fr/",
   "openingHoursSpecification": [
@@ -62,13 +62,7 @@
     },
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
-      "opens": "19:00",
-      "closes": "21:30"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Friday", "Saturday"],
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "19:00",
       "closes": "22:00"
     }
@@ -195,15 +189,15 @@
       </div>
       <div class="about-text-wrapper">
         <div class="about-stats-grid">
-          <div class="about-stat-item"><div class="about-stat-num">37+</div><div class="about-stat-label">Ans d'expérience</div></div>
+          <div class="about-stat-item"><div class="about-stat-num">1977</div><div class="about-stat-label">Franco restaurateur</div></div>
           <div class="about-stat-item"><div class="about-stat-num">100%</div><div class="about-stat-label">Fait maison</div></div>
-          <div class="about-stat-item"><div class="about-stat-num">1987</div><div class="about-stat-label">Notre fondation</div></div>
+          <div class="about-stat-item"><div class="about-stat-num">4.9/5</div><div class="about-stat-label">Note Google Maps</div></div>
         </div>
         <div class="about-text">
           <span class="about-drop-cap">C</span>
           <p>hez Sylvia et Franco, pas de chichis : des nappes à carreaux rouges et blancs, des photos du film <em>La Dolce Vita</em> au mur, des ampoules Edison qui baignent la salle d'une lumière dorée.</p>
-          <p>Notre trattoria, c'est un voyage en Italie sans prendre l'avion. Une cuisine généreuse, des produits frais, un Chianti dans le verre et de la musique italienne en fond. On vous y accueille comme en famille.</p>
-          <p>Du bar où trônent fièrement les drapeaux italiens aux étagères chargées d'Amaretto et de Campari, chaque recoin raconte <em>notre histoire.</em></p>
+          <p>Restaurateur passionné depuis 1977, Franco est rejoint aux fourneaux en 2000 par Sylvia, qui quitte alors son métier de modéliste. Après avoir régalé les habitués (et même quelques joueurs du PSG !) au Vésinet et à Port-Marly, ils ont posé leurs valises à Buc fin août 2025 pour y ouvrir leur trattoria.</p>
+          <p>La Dolce Vita, c'est un voyage en Italie sans prendre l'avion : une cuisine généreuse, des produits frais importés, un Chianti dans le verre et de la musique italienne en fond. On vous y accueille avec le sourire et le cœur comme à la maison.</p>
         </div>
         <span class="about-sig">— Sylvia &amp; Franco 🤌</span>
         <!-- Carte postale du Parrain -->
@@ -237,10 +231,11 @@
       <div class="menu-title-row">
         <h2 class="section-title">La <em>Carte</em></h2>
         <div class="chalk-tabs">
-          <button class="tab-btn active" data-tab="aperitivi">Aperitivi &amp; Boissons</button>
+          <button class="tab-btn active" data-tab="entrees">Entrées</button>
           <button class="tab-btn" data-tab="primi">Pâtes &amp; Risottos</button>
           <button class="tab-btn" data-tab="secondi">Viandes &amp; Poissons</button>
-          <button class="tab-btn" data-tab="dolci">Fromages &amp; Desserts</button>
+          <button class="tab-btn" data-tab="dolci">Desserts &amp; Glaces</button>
+          <button class="tab-btn" data-tab="boissons">Boissons &amp; Vins</button>
           <button class="tab-btn" data-tab="formules">Formules</button>
           <div class="chalk-tabs-indicator"></div>
         </div>
@@ -248,88 +243,240 @@
     </div>
     <div class="chalk-board">
 
-      <div class="menu-panel active" id="tab-aperitivi">
-        <div class="chalk-heading">Nos Spritz</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Aperol, Hugo ou Limoncello</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Spritz classique au choix</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Crodino Spritz</span><span class="chalk-line"></span><span class="chalk-price">6 €</span></div><div class="chalk-desc">Sans alcool</div></div>
+      <div class="menu-panel active" id="tab-entrees">
+        <div class="collapsible-menu-wrapper" id="entrees-collapse">
+          <div class="collapsible-menu-content">
+            <div class="chalk-heading">Entrées</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Calamars frits</span><span class="chalk-line"></span><span class="chalk-price">12 €</span></div><div class="chalk-desc">Sauce tartare maison</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Assortiment de charcuteries italiennes</span><span class="chalk-line"></span><span class="chalk-price">14 €</span></div><div class="chalk-desc">Tranché à la minute</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Antipasti</span><span class="chalk-line"></span><span class="chalk-price">11 €</span></div><div class="chalk-desc">Légumes marinés à l'huile d'olive vierge</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Burrata di bufala</span><span class="chalk-line"></span><span class="chalk-price">12 €</span></div><div class="chalk-desc">Farandole de tomates</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Assiette italienne à partager</span><span class="chalk-line"></span><span class="chalk-price">26 €</span></div><div class="chalk-desc">Charcuteries, antipasti, burratina, focaccia</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Carpaccio de bœuf</span><span class="chalk-line"></span><span class="chalk-price">14 €</span></div><div class="chalk-desc">Pesto, roquette et copeaux de parmesan</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Salade Dolce Vita</span><span class="chalk-line"></span><span class="chalk-price">18 €</span></div><div class="chalk-desc">Roquette, sauce gorgonzola tiède, jambon de Parme, tomates cerise et artichaut à la romaine</div></div>
+            </div>
+          </div>
         </div>
-        <div class="chalk-heading">Aperitivo</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Marsala</span><span class="chalk-line"></span><span class="chalk-price">5 €</span></div><div class="chalk-desc">Amande ou œuf</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Bellini</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div><div class="chalk-desc">Pêche et prosecco</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Negroni Maison</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Vermouth, Campari, gin</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Campari, Martini</span><span class="chalk-line"></span><span class="chalk-price">6 €</span></div><div class="chalk-desc">Blanc ou rouge</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coupe de Prosecco</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div><div class="chalk-desc">Pétillant et frais</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Moretti 33cl</span><span class="chalk-line"></span><span class="chalk-price">6 €</span></div><div class="chalk-desc">Bière blonde italienne</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Gin de Portofino</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div><div class="chalk-desc">Premium Italian gin</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coupe de Champagne</span><span class="chalk-line"></span><span class="chalk-price">9.50 €</span></div></div>
+        <div class="voir-plus-container">
+          <button class="voir-plus-btn">Voir <span class="txt-green">plus</span></button>
         </div>
       </div>
 
       <div class="menu-panel" id="tab-primi">
-        <div class="chalk-heading">Pasta</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Cappelletti aux trois fromages</span><span class="chalk-line"></span><span class="chalk-price">19 €</span></div><div class="chalk-desc">Ricotta, provolone, parmesan, gorgonzola</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Ravioli aux deux truffes</span><span class="chalk-line"></span><span class="chalk-price">24 €</span></div><div class="chalk-desc">Truffe blanche, noire, foie gras</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Ravioli aux gambas poêlées</span><span class="chalk-line"></span><span class="chalk-price">25 €</span></div><div class="chalk-desc">Basilic, homard, cognac</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Rigatoni à la calabrese</span><span class="chalk-line"></span><span class="chalk-price">19 €</span></div><div class="chalk-desc">Spianata, tomate, stracciatella</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Carbonara autentica</span><span class="chalk-line"></span><span class="chalk-price">19 €</span></div><div class="chalk-desc">Pecorino, guanciale (sans crème)</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Fettuccine genovesi</span><span class="chalk-line"></span><span class="chalk-price">16 €</span></div><div class="chalk-desc">Pesto, pignons, tomates confites</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Orecchiette sorrentine</span><span class="chalk-line"></span><span class="chalk-price">18 €</span></div><div class="chalk-desc">Courgettes, citron, menthe, noisettes</div></div>
+        <div class="collapsible-menu-wrapper" id="primi-collapse">
+          <div class="collapsible-menu-content">
+            <div class="chalk-heading">Pasta</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Cappelletti gratinées au trois fromages</span><span class="chalk-line"></span><span class="chalk-price">19 €</span></div><div class="chalk-desc">Pâtes fraîches farcies à la ricotta, sauce provolone, parmesan et gorgonzola</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Ravioli aux deux truffes et foie gras</span><span class="chalk-line"></span><span class="chalk-price">24 €</span></div><div class="chalk-desc">Pâtes fraîches farcies truffe blanche, crème de truffe noire et copeaux de parmesan</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Ravioli aux gambas poêlées</span><span class="chalk-line"></span><span class="chalk-price">25 €</span></div><div class="chalk-desc">Pâtes fraîches farcies au basilic, sauce homard et cognac</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Rigatoni à la calabrese</span><span class="chalk-line"></span><span class="chalk-price">19 €</span></div><div class="chalk-desc">Crème de spinata, sauce tomate et stracciatella</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Oricchiette sorentina</span><span class="chalk-line"></span><span class="chalk-price">18 €</span></div><div class="chalk-desc">Courgettes grillées, crème de citron, menthe et noisettes torréfiées</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Carbonara authentica</span><span class="chalk-line"></span><span class="chalk-price">19 €</span></div><div class="chalk-desc">Pecorino romano, œuf et guanciale (sans crème)</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Fettuccine genovese</span><span class="chalk-line"></span><span class="chalk-price">16 €</span></div><div class="chalk-desc">Pesto de basilic, pignons de pin et tomates confites</div></div>
+            </div>
+            <div class="chalk-heading">Risotto</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Gambas et asperges vertes</span><span class="chalk-line"></span><span class="chalk-price">24 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Gorgonzola, poire et noisettes torréfiées</span><span class="chalk-line"></span><span class="chalk-price">21 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Jambon de Parme et crème de truffe noire</span><span class="chalk-line"></span><span class="chalk-price">22 €</span></div></div>
+            </div>
+          </div>
         </div>
-        <div class="chalk-heading">Risotto</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Risotto gambas et asperges vertes</span><span class="chalk-line"></span><span class="chalk-price">24 €</span></div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Risotto gorgonzola, poire et noisettes</span><span class="chalk-line"></span><span class="chalk-price">21 €</span></div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Risotto jambon de Parme et truffe noire</span><span class="chalk-line"></span><span class="chalk-price">22 €</span></div></div>
+        <div class="voir-plus-container">
+          <button class="voir-plus-btn">Voir <span class="txt-green">plus</span></button>
         </div>
       </div>
 
       <div class="menu-panel" id="tab-secondi">
-        <div class="chalk-heading">Viandes</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Polpette della Mamma</span><span class="chalk-line"></span><span class="chalk-price">20 €</span></div><div class="chalk-desc">Bœuf, tomate, mozzarella gratinée</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Saltimbocca alla romana</span><span class="chalk-line"></span><span class="chalk-price">24 €</span></div><div class="chalk-desc">Veau, jambon de Parme, sauge</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Scaloppine alla parmigiana</span><span class="chalk-line"></span><span class="chalk-price">25 €</span></div><div class="chalk-desc">Veau pané, aubergines, parmesan</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Scaloppine al Marsala</span><span class="chalk-line"></span><span class="chalk-price">23 €</span></div><div class="chalk-desc">Sauce au Marsala</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Milanaise de veau</span><span class="chalk-line"></span><span class="chalk-price">23 €</span></div><div class="chalk-desc">Fine escalope panée croustillante</div></div>
+        <div class="collapsible-menu-wrapper" id="secondi-collapse">
+          <div class="collapsible-menu-content">
+            <div class="chalk-heading">Viandes</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Polpette de la Mamma servie à la poêle</span><span class="chalk-line"></span><span class="chalk-price">20 €</span></div><div class="chalk-desc">Boulettes de bœuf servies à la poêle, sauce tomate, pâtes, mozzarella gratinée</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Saltimbocca a la romana</span><span class="chalk-line"></span><span class="chalk-price">24 €</span></div><div class="chalk-desc">Escalope de veau, jambon de Parme et sauge</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Scalopina a la parmigiana</span><span class="chalk-line"></span><span class="chalk-price">25 €</span></div><div class="chalk-desc">Escalope de veau panée, aubergines sauce tomate et copeaux de parmesan</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Milanese de veau</span><span class="chalk-line"></span><span class="chalk-price">23 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Scalopina al Marsala</span><span class="chalk-line"></span><span class="chalk-price">23 €</span></div></div>
+            </div>
+            <div class="chalk-heading">Poissons</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Calamari alla napoletana</span><span class="chalk-line"></span><span class="chalk-price">22 €</span></div><div class="chalk-desc">Tomates fraîches, basilic et ail</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Gambas Dolce Vita</span><span class="chalk-line"></span><span class="chalk-price">27 €</span></div><div class="chalk-desc">Flambées au cognac, sauce poivre vert et son risotto crémeux</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Fritto misto</span><span class="chalk-line"></span><span class="chalk-price">27 €</span></div><div class="chalk-desc">Calamar, gambas, éperlans, julienne de légumes et sauce tartare maison</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Poisson du jour</span><span class="chalk-line"></span><span class="chalk-price">Voir l'ardoise</span></div></div>
+            </div>
+          </div>
         </div>
-        <div class="chalk-heading">Poissons</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Calamari alla napoletana</span><span class="chalk-line"></span><span class="chalk-price">22 €</span></div><div class="chalk-desc">Tomates fraîches, basilic, ail</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Gambas Dolce Vita</span><span class="chalk-line"></span><span class="chalk-price">27 €</span></div><div class="chalk-desc">Cognac, poivre vert, risotto crémeux</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Fritto Misto</span><span class="chalk-line"></span><span class="chalk-price">27 €</span></div><div class="chalk-desc">Calamars, gambas, éperlans, tartare</div></div>
+        <div class="voir-plus-container">
+          <button class="voir-plus-btn">Voir <span class="txt-green">plus</span></button>
         </div>
       </div>
 
       <div class="menu-panel" id="tab-dolci">
-        <div class="chalk-heading">Fromages</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Assiette de trois fromages italiens</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+        <div class="collapsible-menu-wrapper" id="dolci-collapse">
+          <div class="collapsible-menu-content">
+            <div class="chalk-heading">Fromages</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Assiette de trois fromages</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+            </div>
+            <div class="chalk-heading">Dolci</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Tiramisu classique</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Baba au limoncello</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Chaud froid, pommes caramélisées, glace vanille, calva</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Pain perdu brioché, glace vanille, caramel au beurre salé</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Panna cotta du moment</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Le tout chocolat noir (70%) et mascarpone</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Tarte della nonna</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coupe amarena</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Glace vanille, griottes et chantilly</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coupe sicilienne</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Sorbet mandarine et limoncello</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Café affogato</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div><div class="chalk-desc">Glace vanille ou stracciatella et chantilly</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Café ou thé gourmand</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Patisserie du jour</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div></div>
+            </div>
+            <div class="chalk-heading">Glaces Italiennes Artisanales (Maison Antica Gelateria del Corso)</div>
+            <div class="chalk-desc" style="margin-bottom: 1rem; font-style: italic; font-size: 0.9rem;">
+              Parfums : Vanille, café, pistache, citron, chocolat, stracciatella<br>
+              Sorbets : cassis ou mandarine
+            </div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Une boule</span><span class="chalk-line"></span><span class="chalk-price">4 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Deux boules</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Trois boules</span><span class="chalk-line"></span><span class="chalk-price">10 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Supplément Chantilly maison</span><span class="chalk-line"></span><span class="chalk-price">2 €</span></div></div>
+            </div>
+          </div>
         </div>
-        <div class="chalk-heading">Dolci</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Tiramisu classique</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Café et mascarpone</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Baba au limoncello</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Liqueur de citron artisanale</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Panna cotta du moment</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div><div class="chalk-desc">Parfum de saison</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Torta della Nonna</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Pâte sablée, crème, pignons</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Café Affogato</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div><div class="chalk-desc">Glace vanille et espresso chaud</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coupe Sicilienne</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Sorbet mandarine et Limoncello</div></div>
+        <div class="voir-plus-container">
+          <button class="voir-plus-btn" id="toggle-dolci-btn">Voir <span class="txt-green">plus</span></button>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="tab-boissons">
+        <div class="collapsible-menu-wrapper" id="boissons-collapse">
+          <div class="collapsible-menu-content">
+            <div class="chalk-heading">Nos Spritz</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Aperol, Hugo ou Limoncello</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Crodino spritz</span><span class="chalk-line"></span><span class="chalk-price">6 €</span></div><div class="chalk-desc">Sans alcool</div></div>
+            </div>
+            <div class="chalk-heading">Aperitivo</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Marsala amande ou œuf</span><span class="chalk-line"></span><span class="chalk-price">5 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Kir cassis, mûre, fraise des bois ou fleur de sureau</span><span class="chalk-line"></span><span class="chalk-price">5 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Pastis ou Ricard</span><span class="chalk-line"></span><span class="chalk-price">5 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Campari, Martini blanc ou rouge</span><span class="chalk-line"></span><span class="chalk-price">6 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coupe de prosecco</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Bellini</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div><div class="chalk-desc">Purée de pêche et prosecco</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Rossini</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div><div class="chalk-desc">Crème de fraise des bois et prosecco</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Negroni maison</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div><div class="chalk-desc">Vermouth, Campari et gin</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Gin de Portofino</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Whisky</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Aberlour 10 ans, Jack Daniel's</span><span class="chalk-line"></span><span class="chalk-price">9 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Americano maison</span><span class="chalk-line"></span><span class="chalk-price">8.50 €</span></div><div class="chalk-desc">Vermouth, Campari et eau gazeuse</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coupe de champagne</span><span class="chalk-line"></span><span class="chalk-price">9.50 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Moretti bouteille 33cl</span><span class="chalk-line"></span><span class="chalk-price">6 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Bière pression</span><span class="chalk-line"></span><span class="chalk-price">4.50 € (25cl) · 8 € (50cl)</span></div></div>
+            </div>
+            <div class="chalk-heading">Softs</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Eau plate Evian</span><span class="chalk-line"></span><span class="chalk-price">4 € (50cl) · 6 € (1L)</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">San Pellegrino</span><span class="chalk-line"></span><span class="chalk-price">5 € (50cl) · 7 € (1L)</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Coca Cola, zéro, Orangina, Sprite, Schweppes, Ice tea</span><span class="chalk-line"></span><span class="chalk-price">5 € (33cl)</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Jus de fruit Pago</span><span class="chalk-line"></span><span class="chalk-price">4 € (20cl)</span></div><div class="chalk-desc">Pomme, abricot, orange ou tomate</div></div>
+            </div>
+            <div class="chalk-heading">Boissons Chaudes</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Espresso, décaféiné, macchiato</span><span class="chalk-line"></span><span class="chalk-price">2.50 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Double espresso</span><span class="chalk-line"></span><span class="chalk-price">4.50 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Caffe lungo</span><span class="chalk-line"></span><span class="chalk-price">3.50 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Caffe latte</span><span class="chalk-line"></span><span class="chalk-price">4.50 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Caffe corretto</span><span class="chalk-line"></span><span class="chalk-price">6 €</span></div><div class="chalk-desc">Grappa ou sambucca</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Cappuccino</span><span class="chalk-line"></span><span class="chalk-price">5 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Thé, infusion</span><span class="chalk-line"></span><span class="chalk-price">4.50 €</span></div></div>
+            </div>
+            <div class="chalk-heading">Digestifs</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Limoncello, grappa, sambucca ou amaretto</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Eau de vie</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div><div class="chalk-desc">Mirabelle ou poire</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Get 27 ou 31</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Cognac ou Armagnac</span><span class="chalk-line"></span><span class="chalk-price">8 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Bailey's</span><span class="chalk-line"></span><span class="chalk-price">7 €</span></div></div>
+            </div>
+            <div class="chalk-heading">Vins Blancs (Bianchi)</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Trebbiano Abruzzo</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 22 € (75cl)</span></div><div class="chalk-desc">Sec et fruité. En bouche raffiné, élégant, très frais</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Pinot grigio Venezie</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 23 € (75cl)</span></div><div class="chalk-desc">Sec, léger, aromatique</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Soave classico Verona</span><span class="chalk-line"></span><span class="chalk-price">7 € (15cl) · 26 € (75cl)</span></div><div class="chalk-desc">Sec, parfait pour l'apéritif, idéale avec les poissons</div></div>
+            </div>
+            <div class="chalk-heading">Vins Rosés (Rosati)</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Chiaretto di Bardolino Venezie</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 24 € (75cl)</span></div><div class="chalk-desc">Bouquet fin, intense, bien équilibré</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Borgobruno Toscana</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 23 € (75cl)</span></div><div class="chalk-desc">Légèrement puissant, belle fraicheur</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Une Ile Corsica Domaine Terra Vecchia</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 23 € (75cl)</span></div><div class="chalk-desc">Intensité, fraicheur, corps</div></div>
+            </div>
+            <div class="chalk-heading">Vins Rouges (Rossi)</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Lambrusco Amabile Modena</span><span class="chalk-line"></span><span class="chalk-price">21 € (75cl)</span></div><div class="chalk-desc">Légèrement pétillant</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Valpolicella Ripassodi Verona</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 26 € (75cl)</span></div><div class="chalk-desc">Léger et fruité</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Nero d'Avola Sicilia</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 26 € (75cl)</span></div><div class="chalk-desc">Puissant, forte personnalité</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Chianti DOCG Toscana</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 26 € (75cl)</span></div><div class="chalk-desc">Cépage Sangiovese, gourmand, fruité</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Montepulciano Abruzzo</span><span class="chalk-line"></span><span class="chalk-price">7 € (15cl) · 27 € (75cl)</span></div><div class="chalk-desc">Fruité, robuste, bien équilibré, surnommé le vin du seigneur</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Chianti Classico riserva 2019 Toscana</span><span class="chalk-line"></span><span class="chalk-price">33 € (75cl)</span></div><div class="chalk-desc">Produit sur le territoire historique du Chianti</div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Brouilly Beaujolais</span><span class="chalk-line"></span><span class="chalk-price">6 € (15cl) · 24 € (75cl)</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Baronne de Castanet Lussac st Emilion</span><span class="chalk-line"></span><span class="chalk-price">7 € (15cl) · 29 € (75cl)</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Lupo Meraviglia Puglia</span><span class="chalk-line"></span><span class="chalk-price">7 € (15cl) · 33 € (75cl)</span></div><div class="chalk-desc">Rital à fond, robuste, un parfum intense</div></div>
+            </div>
+            <div class="chalk-heading">Vins de Table (Vino da tavola)</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Blanc, rosé, rouge (Bianco, rosato, rosso)</span><span class="chalk-line"></span><span class="chalk-price">5 € (15cl) · 7 € (25cl) · 12 € (50cl)</span></div></div>
+            </div>
+            <div class="chalk-heading">Pétillants</div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Prosecco Valdobbiane Millesimato</span><span class="chalk-line"></span><span class="chalk-price">29 € (75cl)</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Champagne Sélection du mois</span><span class="chalk-line"></span><span class="chalk-price">59 € (75cl)</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="voir-plus-container">
+          <button class="voir-plus-btn" id="toggle-boissons-btn">Voir <span class="txt-green">plus</span></button>
         </div>
       </div>
 
       <div class="menu-panel" id="tab-formules">
-        <div class="chalk-heading">Formules Midi</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Plat direct</span><span class="chalk-line"></span><span class="chalk-price">16 €</span></div><div class="chalk-desc">Du mardi au vendredi midi</div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Entrée + Plat</span><span class="chalk-line"></span><span class="chalk-price">19.50 €</span></div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Plat + Dessert</span><span class="chalk-line"></span><span class="chalk-price">19.50 €</span></div></div>
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Entrée + Plat + Dessert</span><span class="chalk-line"></span><span class="chalk-price">25 €</span></div></div>
+        <div class="collapsible-menu-wrapper" id="formules-collapse">
+          <div class="collapsible-menu-content">
+            <div class="chalk-heading">Formules Midi</div>
+            <div class="chalk-desc" style="margin-bottom: 1rem; font-style: italic; font-size: 0.9rem;">
+              Du mardi au vendredi sauf les jours fériés · Voir l'ardoise
+            </div>
+            <div class="chalk-items">
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Plat direct</span><span class="chalk-line"></span><span class="chalk-price">16 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Entrée + Plat</span><span class="chalk-line"></span><span class="chalk-price">19.50 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Plat + Dessert</span><span class="chalk-line"></span><span class="chalk-price">19.50 €</span></div></div>
+              <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Entrée + Plat + Dessert</span><span class="chalk-line"></span><span class="chalk-price">25 €</span></div></div>
+            </div>
+            <div class="chalk-heading">Menu Bambino (moins de 10 ans)</div>
+            <div class="chalk-desc" style="margin-bottom: 1rem; font-style: italic; font-size: 0.9rem;">
+              Boisson incluse
+            </div>
+            <div class="chalk-items">
+              <div class="chalk-item">
+                <div class="chalk-name-row"><span class="chalk-name">Formule Enfant</span><span class="chalk-line"></span><span class="chalk-price">13 €</span></div>
+                <div class="chalk-desc">
+                  Pâtes au fromage, sauce tomate ou au beurre<br>
+                  OU<br>
+                  Escalope de poulet panée<br>
+                  + Glace
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="chalk-heading">Menu Bambino</div>
-        <div class="chalk-items">
-          <div class="chalk-item"><div class="chalk-name-row"><span class="chalk-name">Formule Enfant (moins de 10 ans)</span><span class="chalk-line"></span><span class="chalk-price">13 €</span></div><div class="chalk-desc">Boisson + Pâtes ou Poulet pané + Glace</div></div>
+        <div class="voir-plus-container">
+          <button class="voir-plus-btn">Voir <span class="txt-green">plus</span></button>
         </div>
       </div>
     </div>
@@ -428,7 +575,7 @@
       <!-- Left: Responsive Map Card -->
       <div class="contact-map-card">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2629.5662706377674!2d2.1221764771031317!3d48.770119406859556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67db628a8d10b%3A0xe54e60fc8f6d744b!2s14%20Pl.%20du%20March%C3%A9%2C%2078530%20Buc!5e0!3m2!1sfr!2sfr!4v1718100000000!5m2!1sfr!2sfr" 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2629.3055913207954!2d2.1271825!3d48.7760559!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67fc4e2d80af7%3A0xd84d860c4bf86ebb!2sLa%20dolce%20vita!5e0!3m2!1sen!2sfr!4v1781792158951!5m2!1sen!2sfr" 
           style="border:0;" 
           allowfullscreen="" 
           loading="lazy" 
@@ -463,8 +610,7 @@
             <div>
               <div class="c-label">Horaires</div>
               <div class="c-value">
-                <strong>Midi :</strong> Mar – Sam : 12h – 14h<br>
-                <strong>Soir :</strong> Mar – Jeu : 19h – 21h30 | Ven – Sam : 19h – 22h<br>
+                Mar – Sam : 12h – 14h | 19h – 22h<br>
                 <span class="closed-label">Dimanche &amp; Lundi : Fermé <span class="italian-italic">(anche il padrone riposa!)</span></span>
               </div>
             </div>
@@ -499,7 +645,7 @@
     <!-- Col 1 : Logo + baseline -->
     <div class="footer-col footer-col--brand">
       <div class="footer-logo">La <em>Dolce</em> Vita</div>
-      <p class="footer-baseline">Trattoria de Sylvia &amp; Franco<br>depuis 1987 · Buc, France</p>
+      <p class="footer-baseline">Trattoria de Sylvia &amp; Franco<br>14, place du Marché · Buc, France</p>
       <div class="footer-tricolor">
         <span></span><span></span><span></span>
       </div>
@@ -644,20 +790,139 @@ if (initialActive) {
   }
 }
 
-// Update position on resize
+// Function to dynamically limit active tab container height so the menu section fits screen viewport height
+function adjustActiveTabHeight() {
+  const activePanel = document.querySelector('.menu-panel.active');
+  const section = document.querySelector('.menu-section');
+  if (!activePanel || !section) return;
+
+  const wrapper = activePanel.querySelector('.collapsible-menu-wrapper');
+  const buttonContainer = activePanel.querySelector('.voir-plus-container');
+  const button = activePanel.querySelector('.voir-plus-btn');
+  if (!wrapper || !buttonContainer || !button) return;
+
+  // Calculate target section height dynamically based on viewport and header heights
+  const header = document.getElementById('navbar');
+  const ticker = document.querySelector('.top-ticker-bar');
+  const headerHeight = header ? header.offsetHeight : 80;
+  const tickerHeight = ticker ? ticker.offsetHeight : 36;
+  const targetSectionHeight = window.innerHeight - headerHeight - tickerHeight;
+
+  // If the user has explicitly expanded it, let it take scrollHeight and remove fixed-height
+  if (wrapper.classList.contains('is-expanded')) {
+    section.classList.remove('fixed-height');
+    wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+    buttonContainer.style.display = 'flex';
+    return;
+  }
+
+  // Force section fixed-height class so we are always in collapsed viewport state by default
+  section.classList.add('fixed-height');
+
+  // Set wrapper max-height to none first to measure its natural uncollapsed height
+  wrapper.style.maxHeight = 'none';
+
+  // Measure layout elements using client rectangles
+  const wrapperRect = wrapper.getBoundingClientRect();
+  const sectionRect = section.getBoundingClientRect();
+  
+  // Calculate top offset relative to the section top
+  const topOffset = wrapperRect.top - sectionRect.top;
+  
+  // Calculate remaining height to fit section height exactly
+  const calculatedMaxHeight = targetSectionHeight - topOffset;
+  
+  const naturalHeight = wrapper.scrollHeight;
+  const maxAllowedHeight = Math.max(calculatedMaxHeight, 250); // minimum 250px
+
+  if (naturalHeight > maxAllowedHeight) {
+    // Exceeds! We need to collapse it and show the "Voir plus" button
+    wrapper.style.maxHeight = maxAllowedHeight + 'px';
+    buttonContainer.style.display = 'flex';
+    button.style.display = 'inline-flex';
+  } else {
+    // Does not exceed! Let it flow naturally, hide the "Voir plus" button
+    wrapper.style.maxHeight = 'none';
+    buttonContainer.style.display = 'none';
+    button.style.display = 'none';
+  }
+}
+
+// Initial calculation
+adjustActiveTabHeight();
+
+if (document.fonts) {
+  document.fonts.ready.then(() => adjustActiveTabHeight());
+}
+window.addEventListener('load', () => adjustActiveTabHeight());
+
+// Update position and height on resize
 window.addEventListener('resize', () => {
   const currentActive = document.querySelector('.tab-btn.active');
   if (currentActive) updateTabIndicator(currentActive);
+  adjustActiveTabHeight();
 });
 
+// Setup tab buttons click logic
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
+    // 1. Switch active classes
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    
     btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    const targetPanel = document.getElementById('tab-' + btn.dataset.tab);
+    targetPanel.classList.add('active');
+    
     updateTabIndicator(btn);
+    
+    // 2. Reset ALL wrappers and buttons to collapsed state on tab switch
+    document.querySelectorAll('.collapsible-menu-wrapper').forEach(w => {
+      w.classList.remove('is-expanded');
+      w.style.maxHeight = ''; // reset inline style
+    });
+    document.querySelectorAll('.voir-plus-btn').forEach(b => {
+      b.classList.remove('is-active');
+      b.innerHTML = 'Voir <span class="txt-green">plus</span>';
+    });
+    
+    // 3. Recalculate heights for the active tab
+    adjustActiveTabHeight();
   });
+});
+
+// Setup Voir plus / Voir moins toggle for all panels
+document.querySelectorAll('.menu-panel').forEach(panel => {
+  const button = panel.querySelector('.voir-plus-btn');
+  const wrapper = panel.querySelector('.collapsible-menu-wrapper');
+  
+  if (button && wrapper) {
+    button.addEventListener('click', () => {
+      const isExpanded = wrapper.classList.toggle('is-expanded');
+      button.classList.toggle('is-active', isExpanded);
+      button.innerHTML = isExpanded ? 'Voir <span class="txt-green">moins</span>' : 'Voir <span class="txt-green">plus</span>';
+      
+      const menuSection = document.querySelector('.menu-section');
+      
+      if (isExpanded) {
+        if (menuSection) menuSection.classList.remove('fixed-height');
+        wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+      } else {
+        if (menuSection) menuSection.classList.add('fixed-height');
+        adjustActiveTabHeight();
+        // Scroll smoothly back to the top of the menu panel
+        const offset = 80;
+        const position = panel.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: position, behavior: 'smooth' });
+      }
+      
+      // Recalculate chalk tab underline/indicator
+      const activeBtn = document.querySelector('.tab-btn.active');
+      if (activeBtn) {
+        setTimeout(() => updateTabIndicator(activeBtn), 150);
+      }
+    });
+  }
 });
 
 // Reveal on scroll disabled
@@ -777,11 +1042,11 @@ function updateRestaurantStatus() {
   const schedules = {
     0: [], // Sunday
     1: [], // Monday
-    2: [[12, 0, 14, 0], [19, 0, 21, 30]], // Tuesday
-    3: [[12, 0, 14, 0], [19, 0, 21, 30]], // Wednesday
-    4: [[12, 0, 14, 0], [19, 0, 21, 30]], // Thursday
-    5: [[12, 0, 14, 0], [19, 0, 22, 0]],  // Friday
-    6: [[12, 0, 14, 0], [19, 0, 22, 0]]   // Saturday
+    2: [[12, 0, 14, 0], [19, 0, 22, 0]], // Tuesday
+    3: [[12, 0, 14, 0], [19, 0, 22, 0]], // Wednesday
+    4: [[12, 0, 14, 0], [19, 0, 22, 0]], // Thursday
+    5: [[12, 0, 14, 0], [19, 0, 22, 0]], // Friday
+    6: [[12, 0, 14, 0], [19, 0, 22, 0]]  // Saturday
   };
 
   const daySchedule = schedules[day];

@@ -6,16 +6,17 @@
   --ticker-height: 36px;
   --cream: #F5EDD8;
   --cream2: #EFE4C8;
-  --terracotta: #C4603C;
-  --terra-dark: #8B3E22;
-  --terra-light: #E07A55;
-  --sage: #7D9B76;
-  --sage-dark: #5A7254;
+  --terracotta: #CE2B37;
+  --terra-dark: #9E1B23;
+  --terra-light: #EF4A54;
+  --sage: #009246;
+  --sage-dark: #006D34;
   --brown: #4A3728;
   --brown-light: #7a5c44;
   --gold: #D4A843;
   --slate: #3D4F4A;
   --white: #FAFAF7;
+  --menu-section-pb: clamp(1.5rem, 3vw, 2.5rem);
 }
 html { scroll-behavior: smooth; }
 body {
@@ -54,7 +55,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
 }
 .nav-logo-alt {
   font-style: italic;
-  color: #7aaa72;
+  color: var(--sage);
 }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 .nav-links-menu { display: flex; gap: 2.5rem; list-style: none; }
@@ -93,7 +94,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   width: var(--header-height);
   height: 100%;
   border-radius: 0;
-  background: #D48C7A; /* Soft pastel red */
+  background: var(--terracotta);
   border: none;
   cursor: pointer;
   padding: 0;
@@ -101,7 +102,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .nav-burger:hover {
-  background: #BE7867; /* Darker soft pastel red */
+  background: var(--terra-dark);
 }
 .nav-burger svg {
   display: block;
@@ -154,7 +155,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   width: var(--header-height);
 }
 .navbar__music {
-  background: #D48C7A; /* Soft pastel red */
+  background: var(--terracotta);
   color: #fff;
   border: none;
   border-radius: 0;
@@ -171,7 +172,7 @@ nav.scrolled { box-shadow: 0 4px 20px rgba(74,55,40,0.1); }
   /* removed overflow: hidden so notes can float outside the button */
 }
 .navbar__music:hover {
-  background: #BE7867; /* Darker soft pastel red */
+  background: var(--terra-dark);
 }
 .navbar__music-icon {
   font-size: 24px;
@@ -819,7 +820,7 @@ section { padding: 7rem 2rem; }
   pointer-events: none; z-index: 1;
 }
 .about-visual::after {
-  content: 'TRATTORIA\ADAL 1987';
+  content: 'TRATTORIA\ADAL 2025';
   position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
   font-family: 'Fraunces', serif;
   font-size: 0.75rem;
@@ -1091,23 +1092,45 @@ section { padding: 7rem 2rem; }
 
 .menu-section {
   background: var(--cream);
-  padding-top: clamp(7rem, 10vw, 10.5rem);
+  min-height: calc(100vh - var(--header-height) - var(--ticker-height));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(4.5rem, 6vw, 6rem);
+  padding-bottom: var(--menu-section-pb);
   position: relative;
+  overflow: hidden;
+}
+.menu-section.fixed-height {
+  height: calc(100vh - var(--header-height) - var(--ticker-height));
+  padding-bottom: 0;
+}
+.menu-section.fixed-height .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-section.fixed-height .chalk-board {
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
 }
 .menu-section::before {
   content: '';
   display: block;
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   width: 100%;
-  height: 100%;
+  height: 60vh;
+  max-height: 650px;
   background-image: linear-gradient(rgba(245, 237, 216, 0.85), rgba(245, 237, 216, 0.85)), url('assets/images/doncorleone.png');
-  background-size: auto 100%;
+  background-size: contain;
   background-position: right bottom;
   background-repeat: no-repeat;
-  opacity: 0.12;
+  opacity: 0.18;
   pointer-events: none;
   z-index: 0;
 }
@@ -1206,9 +1229,11 @@ section { padding: 7rem 2rem; }
   grid-area: panel;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, padding-bottom 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   /* Must stay in flow to preserve container height */
   visibility: hidden;
+  position: relative;
+  padding-bottom: 0;
 }
 .menu-panel.active {
   opacity: 1;
@@ -2240,4 +2265,131 @@ footer::before {
   .top-ticker-bar .ticker-status {
     font-size: 0.72rem;
   }
+}
+
+/* Collapsible menu for Boissons & Vins */
+.collapsible-menu-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-height: calc(100vh - 350px);
+  transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.collapsible-menu-wrapper.is-expanded {
+  max-height: 4000px;
+}
+.collapsible-menu-content {
+  overflow: hidden;
+}
+
+/* Beautiful bottom fade out container with floating button on top */
+.voir-plus-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 3.5rem;
+  z-index: 10;
+  pointer-events: none;
+  transition: height 0.6s cubic-bezier(0.25, 1, 0.5, 1), padding-bottom 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.voir-plus-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(245, 237, 216, 0) 0%, var(--cream) 100%);
+  z-index: -1;
+  transition: opacity 0.6s ease;
+  opacity: 1;
+}
+
+/* Re-enable pointer events on the button itself */
+.voir-plus-btn {
+  pointer-events: auto;
+}
+
+/* When expanded, keep absolute layout at bottom: 0, fade out the gradient, and resize to 100px */
+.menu-section:not(.fixed-height) .voir-plus-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  padding-bottom: 2.5rem;
+  z-index: 10;
+}
+
+.menu-section:not(.fixed-height) .voir-plus-container::before {
+  opacity: 0;
+}
+
+/* When expanded, add padding to the bottom of the active panel to make room for the absolute button */
+.menu-section:not(.fixed-height) .menu-panel {
+  padding-bottom: 100px;
+}
+.voir-plus-btn {
+  background: transparent;
+  color: var(--it-red);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: none;
+  text-shadow: 
+    -6px -6px 0 var(--cream),  
+     6px -6px 0 var(--cream),
+    -6px  6px 0 var(--cream),
+     6px  6px 0 var(--cream),
+     0px -6px 0 var(--cream),
+     0px  6px 0 var(--cream),
+    -6px  0px 0 var(--cream),
+     6px  0px 0 var(--cream),
+    -3px -6px 0 var(--cream),
+     3px -6px 0 var(--cream),
+    -3px  6px 0 var(--cream),
+     3px  6px 0 var(--cream),
+    -6px -3px 0 var(--cream),
+     6px -3px 0 var(--cream),
+    -6px  3px 0 var(--cream),
+     6px  3px 0 var(--cream);
+}
+.voir-plus-btn:hover {
+  color: var(--brown);
+  text-shadow: none;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+.voir-plus-btn .txt-green {
+  color: var(--it-green);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.voir-plus-btn:hover .txt-green {
+  color: var(--brown);
+  text-shadow: none;
+}
+.voir-plus-btn::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--it-red);
+  border: none;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 6px var(--cream);
+}
+.voir-plus-btn:hover::after {
+  background-color: var(--brown);
+  box-shadow: 0 0 0 6px transparent;
 }
