@@ -1772,11 +1772,12 @@ section { padding: 7rem 2rem; }
   max-width: 380px;
   align-items: center;
   transition: all 0.3s ease;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
 }
 .time-block.today {
   background: rgba(0, 146, 70, 0.05);
-  padding: 0.25rem 0.6rem;
-  border-radius: 4px;
 }
 .hours-group.closed .time-block.today {
   background: rgba(206, 43, 55, 0.04);
@@ -1858,12 +1859,11 @@ section { padding: 7rem 2rem; }
 
 @media (max-width: 600px) {
   .contact-item {
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
   }
   .c-flag {
-    align-self: center;
-    margin-top: 0;
+    display: none;
   }
   .c-info-wrapper {
     min-width: 0;
@@ -1882,6 +1882,11 @@ section { padding: 7rem 2rem; }
   .contact-item-btn i {
     font-size: 1.1rem;
     margin: 0;
+  }
+  .hours-header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
   }
 }
 
