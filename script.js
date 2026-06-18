@@ -9,13 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. NAVBAR — Scroll effect + mobile toggle
   // ──────────────────────────────────────────────
   const navbar = document.getElementById('navbar');
-  const navBurger = document.getElementById('navBurger');
+  const navBurger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
 
   // Navbar background on scroll
   const handleNavScroll = () => {
     if (window.scrollY > 80) {
       navbar.classList.add('scrolled');
+      navbar.classList.add('has-scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
@@ -24,15 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
   handleNavScroll(); // Initial check
 
   // Mobile burger toggle
-  navBurger.addEventListener('click', () => {
-    navBurger.classList.toggle('active');
-    navLinks.classList.toggle('open');
-  });
+  if (navBurger) {
+    navBurger.addEventListener('click', () => {
+      navBurger.classList.toggle('opened');
+      navLinks.classList.toggle('open');
+    });
+  }
 
   // Close mobile menu on link click
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navBurger.classList.remove('active');
+      if (navBurger) navBurger.classList.remove('opened');
       navLinks.classList.remove('open');
     });
   });

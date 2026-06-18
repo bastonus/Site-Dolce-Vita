@@ -78,7 +78,6 @@
     <a href="#contatto" class="ticker-item ticker-address">
       <i class="fas fa-map-marker-alt"></i> 14 place du Marché Buc
     </a>
-    <span class="ticker-separator">•</span>
     <a href="#contatto" class="ticker-item ticker-status" id="headerStatusBadgeTicker">
       <span class="status-dot"></span>
       <span class="status-text">Calcul en cours...</span>
@@ -105,9 +104,10 @@
   </div>
   <div class="nav-actions">
     <a href="tel:0139560171" class="nav-phone" title="Appeler La Dolce Vita">
-      <i class="fas fa-phone-alt"></i>
-      <span class="nav-phone-desktop">01 39 56 01 71</span>
-      <span class="nav-phone-mobile">Appeler</span>
+      <div class="nav-phone-container">
+        <span class="nav-phone-label"><i class="fas fa-phone-alt"></i> <span class="nav-phone-text">Réserver</span></span>
+        <span class="nav-phone-number">01 39 56 01 71</span>
+      </div>
     </a>
     <div class="navbar__music-wrapper">
       <button class="navbar__music" id="musicToggle" aria-label="Jouer la musique">
@@ -165,9 +165,9 @@
   <div class="hero__music-widget">
     <span class="hero__music-label">ascolta la musica<br><span class="hero__music-subtitle">« E l'Italia » - Vinchenzo Orru</span></span>
     <!-- arrow: curves from label down to disc -->
-    <svg class="hero__music-arrow" viewBox="0 0 38 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M 20 4 C 26 16, 10 30, 18 48" stroke="#F5EDD6" stroke-width="2.2" stroke-linecap="round" fill="none"/>
-      <path d="M18 48 L10 38 M18 48 L24 38" stroke="#F5EDD6" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <svg class="hero__music-arrow" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M 30 -8 L 30 35" stroke="#CE2B37" stroke-width="12" fill="none"/>
+      <path d="M 7,30 L 53,30 L 30,56 Z" fill="#CE2B37" stroke="#CE2B37" stroke-width="4" stroke-linejoin="round"/>
     </svg>
     <button class="hero__music-disc" id="musicToggleHero" aria-label="Ascolta la musica">
       <i class="fas fa-compact-disc"></i>
@@ -1167,7 +1167,12 @@ function updateRestaurantStatus() {
       badgeElement.classList.add('closed-status');
     }
     if (textElement) {
-      textElement.textContent = statusText;
+      if (statusText.includes(' • ')) {
+        const parts = statusText.split(' • ');
+        textElement.innerHTML = `<strong>${parts[0]}</strong> • ${parts[1]}`;
+      } else {
+        textElement.innerHTML = `<strong>${statusText}</strong>`;
+      }
     }
   });
 
@@ -1178,7 +1183,12 @@ function updateRestaurantStatus() {
     contactBadge.classList.remove('open', 'closed', 'soon');
     contactBadge.classList.add(status);
     if (contactText) {
-      contactText.textContent = statusText;
+      if (statusText.includes(' • ')) {
+        const parts = statusText.split(' • ');
+        contactText.innerHTML = `<strong>${parts[0]}</strong> • ${parts[1]}`;
+      } else {
+        contactText.innerHTML = `<strong>${statusText}</strong>`;
+      }
     }
   }
 
