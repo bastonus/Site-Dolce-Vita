@@ -2130,6 +2130,29 @@ footer::before {
     font-size: 0.72rem;
   }
   .chalk-board { padding: 2rem 1.5rem; }
+
+  /* Disable strict viewport height constraints on mobile to prevent clipping the menu and buttons */
+  .menu-section.fixed-height {
+    height: auto;
+  }
+  .menu-section.fixed-height .container {
+    height: auto;
+    display: block;
+  }
+  .menu-section.fixed-height .chalk-board {
+    overflow: visible;
+  }
+
+  /* Stack active panel only and hide others to let the height adapt naturally to each active tab's height */
+  .menu-panel {
+    display: none;
+  }
+  .menu-panel.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 }
 
 /* Announcement Ticker Bar */

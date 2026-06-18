@@ -801,6 +801,15 @@ function adjustActiveTabHeight() {
   const button = activePanel.querySelector('.voir-plus-btn');
   if (!wrapper || !buttonContainer || !button) return;
 
+  // On mobile screens (width <= 800px), show all items, hide button and gradient
+  if (window.innerWidth <= 800) {
+    section.classList.remove('fixed-height');
+    wrapper.style.maxHeight = 'none';
+    buttonContainer.style.display = 'none';
+    button.style.display = 'none';
+    return;
+  }
+
   // Calculate target section height dynamically based on viewport and header heights
   const header = document.getElementById('navbar');
   const ticker = document.querySelector('.top-ticker-bar');
@@ -833,7 +842,12 @@ function adjustActiveTabHeight() {
   const calculatedMaxHeight = targetSectionHeight - topOffset;
   
   const naturalHeight = wrapper.scrollHeight;
-  const maxAllowedHeight = Math.max(calculatedMaxHeight, 250); // minimum 250px
+  let maxAllowedHeight;
+  if (window.innerWidth <= 800) {
+    maxAllowedHeight = 350; // Clean fixed collapse height for mobile screens
+  } else {
+    maxAllowedHeight = Math.max(calculatedMaxHeight, 250); // minimum 250px
+  }
 
   if (naturalHeight > maxAllowedHeight) {
     // Exceeds! We need to collapse it and show the "Voir plus" button
