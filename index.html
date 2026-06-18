@@ -572,7 +572,81 @@
 <section class="contact-section" id="contatto">
   <div class="container">
     <div class="contact-grid">
-      <!-- Left: Responsive Map Card -->
+      <!-- Left: Contact Details -->
+      <div class="contact-details-card">
+        <div class="contact-card-badge">Trattoria</div>
+        <h3 class="contact-card-title"><span class="contact-title-names">Sylvia &amp; Franco</span> <em>vous&nbsp;accueillent</em></h3>
+
+        <div class="contact-items-list">
+          <div class="contact-item">
+            <div class="c-flag"></div>
+            <div class="contact-item-content">
+              <div class="c-info-wrapper">
+                <div class="c-label">Nous trouver</div>
+                <div class="c-value">14, place du Marché<br>78530 Buc, France</div>
+              </div>
+              <a href="https://www.google.com/maps/dir//La+dolce+vita,+14+Pl.+du+March%C3%A9,+78530+Buc" target="_blank" rel="noopener" class="contact-item-btn">
+                <i class="fas fa-directions"></i> <span class="btn-text">Itinéraire</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="c-flag"></div>
+            <div class="contact-item-content">
+              <div class="c-info-wrapper">
+                <div class="c-label">Réserver</div>
+                <div class="c-value"><a href="tel:0139560171">01 39 56 01 71</a></div>
+              </div>
+              <a href="tel:0139560171" class="contact-item-btn contact-item-btn--primary">
+                <i class="fas fa-phone-alt"></i> <span class="btn-text">Appeler</span>
+              </a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="c-flag"></div>
+            <div class="contact-item-content">
+              <div class="hours-header-wrapper">
+                <div class="c-label" style="margin-bottom: 0;">Quando mangiare?</div>
+                <div class="contact-status-badge" id="contactStatusBadge" style="margin-bottom: 0;">
+                  <span class="contact-status-dot"></span>
+                  <span class="contact-status-text">Calcul en cours...</span>
+                </div>
+              </div>
+              <div class="menu-hours-card">
+                <div class="hours-group" data-group="open-days">
+                  <div class="hours-header-row">
+                    <span class="hours-days-title">Mardi au Samedi</span>
+                    <span class="hours-line-dot"></span>
+                  </div>
+                  <div class="hours-time-details">
+                    <div class="time-block" data-slot="midi">
+                      <span class="time-label">Midi (Pranzo)</span>
+                      <span class="time-val">12h00 – 14h00</span>
+                    </div>
+                    <div class="time-block" data-slot="soir">
+                      <span class="time-label">Soir (Cena)</span>
+                      <span class="time-val">19h00 – 22h00</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="hours-group closed" data-group="closed-days">
+                  <div class="hours-header-row">
+                    <span class="hours-days-title">Dimanche &amp; Lundi</span>
+                    <span class="hours-line-dot"></span>
+                  </div>
+                  <div class="hours-time-details">
+                    <div class="time-block" data-slot="closed">
+                      <span class="time-val">Fermé <span class="italian-italic">(anche il padrone riposa!)</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Map -->
       <div class="contact-map-card">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2629.3055913207954!2d2.1271825!3d48.7760559!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67fc4e2d80af7%3A0xd84d860c4bf86ebb!2sLa%20dolce%20vita!5e0!3m2!1sen!2sfr!4v1781792158951!5m2!1sen!2sfr" 
@@ -582,47 +656,6 @@
           referrerpolicy="no-referrer-when-downgrade"
           title="Plan d'accès La Dolce Vita Buc">
         </iframe>
-      </div>
-
-      <!-- Right: Contact Details Card -->
-      <div class="contact-details-card">
-        <div class="contact-card-badge">Trattoria</div>
-        <h3 class="contact-card-title">Sylvia &amp; Franco <em>vous accueillent</em></h3>
-        <p class="contact-card-sub">Venez déguster nos spécialités italiennes faites maison dans une ambiance conviviale et chaleureuse au cœur de Buc.</p>
-        
-        <div class="contact-items-list">
-          <div class="contact-item">
-            <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-              <div class="c-label">Adresse</div>
-              <div class="c-value">14, place du Marché · 78530 Buc, France</div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="c-icon"><i class="fas fa-phone-alt"></i></div>
-            <div>
-              <div class="c-label">Téléphone</div>
-              <div class="c-value"><a href="tel:0139560171">01 39 56 01 71</a></div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="c-icon"><i class="fas fa-clock"></i></div>
-            <div>
-              <div class="c-label">Horaires</div>
-              <div class="c-value">
-                Mar – Sam : 12h – 14h | 19h – 22h<br>
-                <span class="closed-label">Dimanche &amp; Lundi : Fermé <span class="italian-italic">(anche il padrone riposa!)</span></span>
-              </div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="c-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <div class="c-label">Email</div>
-              <div class="c-value"><a href="mailto:contact@ladolcevita-buc.fr">contact@ladolcevita-buc.fr</a></div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -668,7 +701,7 @@
       <ul class="footer-contact">
         <li><i class="fas fa-map-marker-alt"></i> 14, place du Marché · 78530 Buc</li>
         <li><i class="fas fa-phone-alt"></i> <a href="tel:0139560171">01 39 56 01 71</a></li>
-        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@ladolcevita-buc.fr">contact@ladolcevita-buc.fr</a></li>
+
       </ul>
       <div class="footer-socials">
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1071,7 +1104,7 @@ function updateRestaurantStatus() {
 
   const dayNames = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 
-  let isOpen = false;
+  let status = "closed";
   let statusText = "Fermé";
 
   // 1. Check if currently open
@@ -1079,14 +1112,14 @@ function updateRestaurantStatus() {
     const startMins = toMins(slot[0], slot[1]);
     const endMins = toMins(slot[2], slot[3]);
     if (time >= startMins && time < endMins) {
-      isOpen = true;
+      status = "open";
       statusText = `Ouvert • Ferme à ${formatTime(slot[2], slot[3])}`;
       break;
     }
   }
 
   // 2. Closed: find next opening
-  if (!isOpen) {
+  if (status === "closed") {
     let found = false;
     for (let i = 0; i < 7; i++) {
       const checkDayIndex = (day + i) % 7;
@@ -1101,6 +1134,13 @@ function updateRestaurantStatus() {
         let dayPrefix = "";
         if (i === 0) {
           dayPrefix = "aujourd'hui à ";
+          // Check if it opens in less than 60 minutes
+          if (startMins - time <= 60) {
+            status = "soon";
+            statusText = `Ouvre bientôt • à ${formatTime(slot[0], slot[1])}`;
+            found = true;
+            break;
+          }
         } else if (i === 1) {
           dayPrefix = "demain à ";
         } else {
@@ -1118,17 +1158,63 @@ function updateRestaurantStatus() {
   // Update all badges
   badgeElements.forEach(badgeElement => {
     const textElement = badgeElement.querySelector('.status-text');
-    if (isOpen) {
-      badgeElement.classList.remove('closed-status');
+    badgeElement.classList.remove('closed-status', 'open-status', 'soon-status');
+    if (status === "open") {
       badgeElement.classList.add('open-status');
+    } else if (status === "soon") {
+      badgeElement.classList.add('soon-status');
     } else {
-      badgeElement.classList.remove('open-status');
       badgeElement.classList.add('closed-status');
     }
     if (textElement) {
       textElement.textContent = statusText;
     }
   });
+
+  // Also update the contact section badge
+  const contactBadge = document.getElementById('contactStatusBadge');
+  if (contactBadge) {
+    const contactText = contactBadge.querySelector('.contact-status-text');
+    contactBadge.classList.remove('open', 'closed', 'soon');
+    contactBadge.classList.add(status);
+    if (contactText) {
+      contactText.textContent = statusText;
+    }
+  }
+
+  // Highlight current day in the hours list
+  highlightTodayInHours();
+}
+
+function highlightTodayInHours() {
+  const now = new Date();
+  const currentDay = now.getDay();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const time = hours * 60 + minutes;
+
+  // Clear all highlights
+  document.querySelectorAll('.time-block').forEach(block => {
+    block.classList.remove('today');
+  });
+
+  let activeSlot = null;
+
+  if (currentDay >= 2 && currentDay <= 6) {
+    // Open days: decide between lunch (midi) and dinner (soir)
+    if (time < 15 * 60) {
+      activeSlot = document.querySelector('.time-block[data-slot="midi"]');
+    } else {
+      activeSlot = document.querySelector('.time-block[data-slot="soir"]');
+    }
+  } else {
+    // Closed days
+    activeSlot = document.querySelector('.time-block[data-slot="closed"]');
+  }
+
+  if (activeSlot) {
+    activeSlot.classList.add('today');
+  }
 }
 
 // Initialize and check periodically
